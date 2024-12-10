@@ -1,0 +1,595 @@
+fileFormatVersion: 2
+guid: 9b9ee91a623d14a88897ae6cd61d8863
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2093165867637963440
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_0
+  - first:
+      213: 1719325428902762062
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_1
+  - first:
+      213: 5303077605506472296
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_2
+  - first:
+      213: 1530870779804722922
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_3
+  - first:
+      213: 6843513727466640430
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_4
+  - first:
+      213: -4866881315672485755
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_5
+  - first:
+      213: 7633344235496267440
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_6
+  - first:
+      213: -438861019697255835
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_7
+  - first:
+      213: -4708527246129898569
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_8
+  - first:
+      213: 807224863672812463
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_9
+  - first:
+      213: -3060605470478992281
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_10
+  - first:
+      213: -5879153086599658422
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_11
+  - first:
+      213: 2883263982222852938
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_12
+  - first:
+      213: -9004800970392581592
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_13
+  - first:
+      213: 5728380458325149968
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_14
+  - first:
+      213: 6316015036219583714
+    second: 067de64a-61c6-49f0-b7bb-4318e5c5502c-0_prev_ui_15
+  - first:
+      213: 882498783279789872
+    second: Moon SPrite_0
+  - first:
+      213: -3996317423670669339
+    second: Moon SPrite_1
+  - first:
+      213: 159061972879199122
+    second: Moon SPrite_2
+  - first:
+      213: 2051600732597634087
+    second: Moon SPrite_3
+  - first:
+      213: -7807941959200455776
+    second: Moon SPrite_4
+  - first:
+      213: 6355980980494314103
+    second: Moon SPrite_5
+  - first:
+      213: -6839237380609286068
+    second: Moon SPrite_6
+  - first:
+      213: -4713322018639609173
+    second: Moon SPrite_7
+  - first:
+      213: -6145082014370101662
+    second: Moon SPrite_8
+  - first:
+      213: -2018180999324202783
+    second: Moon SPrite_9
+  - first:
+      213: -2867552377448032004
+    second: Moon SPrite_10
+  - first:
+      213: 1612706729703244935
+    second: Moon SPrite_11
+  - first:
+      213: -5682060954242957064
+    second: Moon SPrite_12
+  - first:
+      213: -7700432145411292057
+    second: Moon SPrite_13
+  - first:
+      213: 1976044939892662934
+    second: Moon SPrite_14
+  - first:
+      213: 513464110680931969
+    second: Moon SPrite_15
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 52
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Moon SPrite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0373b1cb7f34f3c00800000000000000
+      internalID: 882498783279789872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5efc7600a7a3a88c0800000000000000
+      internalID: -3996317423670669339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29bccb6850a153200800000000000000
+      internalID: 159061972879199122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724c9671fffb87c10800000000000000
+      internalID: 2051600732597634087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a34df6082e94a390800000000000000
+      internalID: -7807941959200455776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77aa08db60bf43850800000000000000
+      internalID: 6355980980494314103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_6
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40e53296d52611a0800000000000000
+      internalID: -6839237380609286068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_7
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba285f6a89ae69eb0800000000000000
+      internalID: -4713322018639609173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26604d9477848baa0800000000000000
+      internalID: -6145082014370101662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_9
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e886dae21bfdf3e0800000000000000
+      internalID: -2018180999324202783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_10
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8126f3e486438d0800000000000000
+      internalID: -2867552377448032004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_11
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78408d6e93c716610800000000000000
+      internalID: 1612706729703244935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f04b3ebaa34521b0800000000000000
+      internalID: -5682060954242957064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_13
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764c2cb23c1922590800000000000000
+      internalID: -7700432145411292057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_14
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692a28e37625c6b10800000000000000
+      internalID: 1976044939892662934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon SPrite_15
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e7c0263e0302700800000000000000
+      internalID: 513464110680931969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6a98c6c016eac4920b13504174612a77
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Moon SPrite_0: 882498783279789872
+      Moon SPrite_1: -3996317423670669339
+      Moon SPrite_10: -2867552377448032004
+      Moon SPrite_11: 1612706729703244935
+      Moon SPrite_12: -5682060954242957064
+      Moon SPrite_13: -7700432145411292057
+      Moon SPrite_14: 1976044939892662934
+      Moon SPrite_15: 513464110680931969
+      Moon SPrite_2: 159061972879199122
+      Moon SPrite_3: 2051600732597634087
+      Moon SPrite_4: -7807941959200455776
+      Moon SPrite_5: 6355980980494314103
+      Moon SPrite_6: -6839237380609286068
+      Moon SPrite_7: -4713322018639609173
+      Moon SPrite_8: -6145082014370101662
+      Moon SPrite_9: -2018180999324202783
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

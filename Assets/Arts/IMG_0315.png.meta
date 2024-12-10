@@ -1,0 +1,619 @@
+fileFormatVersion: 2
+guid: 271e3fca20669443294bedb35ff9d194
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1223195076501203765
+    second: l blink
+  - first:
+      213: -2474507109988926608
+    second: r blink
+  - first:
+      213: -6203403915964949773
+    second: l eyebrow
+  - first:
+      213: -2195161304789284531
+    second: r eyebrow
+  - first:
+      213: 7363031267960950095
+    second: open left eye
+  - first:
+      213: 6941620936467490598
+    second: IMG_0315_6
+  - first:
+      213: -8087212472437829734
+    second: open r eye
+  - first:
+      213: -4530489582779678630
+    second: IMG_0315_8
+  - first:
+      213: 6338966643138747399
+    second: IMG_0315_9
+  - first:
+      213: -7013611287803459619
+    second: IMG_0315_10
+  - first:
+      213: -5674699236925684481
+    second: r ear
+  - first:
+      213: 2447999606433298327
+    second: head
+  - first:
+      213: -6528147465909979850
+    second: r hand
+  - first:
+      213: -4288732656086511584
+    second: l ear
+  - first:
+      213: -600915182863008166
+    second: l hand
+  - first:
+      213: -4425650496992761176
+    second: L leg
+  - first:
+      213: -7722218093565740517
+    second: normal laugh
+  - first:
+      213: -9184502781147421057
+    second: R leg
+  - first:
+      213: -9207840297395352678
+    second: normal lip
+  - first:
+      213: 9182247330170510372
+    second: Body
+  - first:
+      213: -261335755154947999
+    second: O pronounce
+  - first:
+      213: 404146669805522101
+    second: laugh
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 53
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: l blink
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1628
+        width: 200
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc493260f86560fe0800000000000000
+      internalID: -1223195076501203765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: r blink
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1624
+        width: 194
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b7eead4e8c8add0800000000000000
+      internalID: -2474507109988926608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: l eyebrow
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1632
+        width: 168
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa54a6610519e9a0800000000000000
+      internalID: -6203403915964949773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: r eyebrow
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 1656
+        width: 148
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d490a5b7c683981e0800000000000000
+      internalID: -2195161304789284531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: open left eye
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 1608
+        width: 196
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d08ec5dedbe2660800000000000000
+      internalID: 7363031267960950095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: open r eye
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 1612
+        width: 188
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f0c3daa1374cf80800000000000000
+      internalID: -8087212472437829734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_0315_10
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1408
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd70ec581b5aaae90800000000000000
+      internalID: -7013611287803459619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: r ear
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 1364
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff44ddf1c1b6f31b0800000000000000
+      internalID: -5674699236925684481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 632
+        width: 1052
+        height: 928
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797b0c70caa09f120800000000000000
+      internalID: 2447999606433298327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: r hand
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 1312
+        width: 158
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635b115a77c5765a0800000000000000
+      internalID: -6528147465909979850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: l ear
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1144
+        width: 292
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02098593f5c5b74c0800000000000000
+      internalID: -4288732656086511584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: l hand
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 1048
+        width: 160
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ebf4133de19a7f0800000000000000
+      internalID: -600915182863008166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L leg
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 848
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa27b2325ee492c0800000000000000
+      internalID: -4425650496992761176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: normal laugh
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 780
+        width: 304
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a7be6de8b25d490800000000000000
+      internalID: -7722218093565740517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R leg
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 616
+        width: 136
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76ee13d1671a8080800000000000000
+      internalID: -9184502781147421057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: normal lip
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 548
+        width: 118
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b0935e80e273080800000000000000
+      internalID: -9207840297395352678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 148
+        width: 386
+        height: 304
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c97921c45ed6f70800000000000000
+      internalID: 9182247330170510372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: O pronounce
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 276
+        width: 120
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16081eae38c8f5cf0800000000000000
+      internalID: -261335755154947999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laugh
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 46
+        width: 304
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc4ae24141db9500800000000000000
+      internalID: 404146669805522101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Body: 9182247330170510372
+      IMG_0315_10: -7013611287803459619
+      L leg: -4425650496992761176
+      O pronounce: -261335755154947999
+      R leg: -9184502781147421057
+      head: 2447999606433298327
+      l blink: -1223195076501203765
+      l ear: -4288732656086511584
+      l eyebrow: -6203403915964949773
+      l hand: -600915182863008166
+      laugh: 404146669805522101
+      normal laugh: -7722218093565740517
+      normal lip: -9207840297395352678
+      open left eye: 7363031267960950095
+      open r eye: -8087212472437829734
+      r blink: -2474507109988926608
+      r ear: -5674699236925684481
+      r eyebrow: -2195161304789284531
+      r hand: -6528147465909979850
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

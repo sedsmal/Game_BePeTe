@@ -1,0 +1,385 @@
+fileFormatVersion: 2
+guid: 9bbca9b530e7e46bf8a68db585ff8452
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6334199035472825449
+    second: Default_illustration_of_ballones_1_adobe_express_0
+  - first:
+      213: 433747820353928879
+    second: Default_illustration_of_ballones_1_adobe_express_1
+  - first:
+      213: 8503713784229816201
+    second: Default_illustration_of_ballones_1_adobe_express_2
+  - first:
+      213: 9044522118628102455
+    second: Default_illustration_of_ballones_1_adobe_express_3
+  - first:
+      213: -8640773576578555624
+    second: Default_illustration_of_ballones_1_adobe_express_4
+  - first:
+      213: 3492371186865053035
+    second: Default_illustration_of_ballones_1_adobe_express_5
+  - first:
+      213: 3006120209086811545
+    second: Default_illustration_of_ballones_1_adobe_express_6
+  - first:
+      213: 395622078340092842
+    second: Default_illustration_of_ballones_1_adobe_express_7
+  - first:
+      213: -8036230158977334952
+    second: Default_illustration_of_ballones_1_adobe_express_8
+  - first:
+      213: -4063599511249559454
+    second: Default_illustration_of_ballones_1_adobe_express_9
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 646
+        width: 196
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793350a89876818a0800000000000000
+      internalID: -6334199035472825449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_1
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 640
+        width: 199
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faebb42385bf40600800000000000000
+      internalID: 433747820353928879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_2
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 614
+        width: 199
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9876c94d1a2430670800000000000000
+      internalID: 8503713784229816201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_3
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 661
+        width: 196
+        height: 558
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731ddfb62f8948d70800000000000000
+      internalID: 9044522118628102455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_4
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 636
+        width: 200
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811247f763ec51880800000000000000
+      internalID: -8640773576578555624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 52
+        width: 192
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d96e05715677030800000000000000
+      internalID: 3492371186865053035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 34
+        width: 204
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d0ebe2762e7b920800000000000000
+      internalID: 3006120209086811545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_7
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 27
+        width: 195
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa353c42f288d7500800000000000000
+      internalID: 395622078340092842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_8
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 56
+        width: 199
+        height: 587
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85100e88f33997090800000000000000
+      internalID: -8036230158977334952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_illustration_of_ballones_1_adobe_express_9
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 40
+        width: 200
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260e48e36c13b97c0800000000000000
+      internalID: -4063599511249559454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Default_illustration_of_ballones_1_adobe_express_0: -6334199035472825449
+      Default_illustration_of_ballones_1_adobe_express_1: 433747820353928879
+      Default_illustration_of_ballones_1_adobe_express_2: 8503713784229816201
+      Default_illustration_of_ballones_1_adobe_express_3: 9044522118628102455
+      Default_illustration_of_ballones_1_adobe_express_4: -8640773576578555624
+      Default_illustration_of_ballones_1_adobe_express_5: 3492371186865053035
+      Default_illustration_of_ballones_1_adobe_express_6: 3006120209086811545
+      Default_illustration_of_ballones_1_adobe_express_7: 395622078340092842
+      Default_illustration_of_ballones_1_adobe_express_8: -8036230158977334952
+      Default_illustration_of_ballones_1_adobe_express_9: -4063599511249559454
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
