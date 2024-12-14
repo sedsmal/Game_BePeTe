@@ -139,7 +139,10 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         {
             SoundManager.Instance.Play("R");
         }
-
+        else if (levelName == "Zh0")
+        {
+            SoundManager.Instance.Play("Zh");
+        }
         else if (levelName == "S0")
         {
             SoundManager.Instance.Play("S");
@@ -168,7 +171,7 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         {
             SoundManager.Instance.Play("Eyn");
         }
-        else if (levelName == "ghyn0")
+        else if (levelName == "Ghyn0")
         {
             SoundManager.Instance.Play("Ghyn");
         }

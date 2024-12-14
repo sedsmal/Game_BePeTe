@@ -12,8 +12,29 @@ EditorBuildSettings:
     path: Assets/Scenes/Words/1Cow.unity
     guid: b1f119f28cceb4244900dcbbedf9440e
   - enabled: 1
+    path: Assets/Scenes/Eyn/Eyn0.unity
+    guid: 6edb18cced3494998bda8764120038e6
+  - enabled: 1
+    path: Assets/Scenes/F/F0.unity
+    guid: 40fb335f06ed940f18000a6e277cf4f2
+  - enabled: 1
+    path: Assets/Scenes/G/G0.unity
+    guid: 928e5c37ae7554ac8ad994fb619668f9
+  - enabled: 1
+    path: Assets/Scenes/Gh/Gh0.unity
+    guid: 40d048766784a404599d4b2d4484d52b
+  - enabled: 1
+    path: Assets/Scenes/Ghyn/Ghyn0.unity
+    guid: b34e85aceb1854868a7583209faf9ad5
+  - enabled: 1
     path: Assets/Scenes/B/B8.unity
     guid: 3ab86d866a4604a25bf9ba643c3866b4
+  - enabled: 1
+    path: Assets/Scenes/N/N0.unity
+    guid: 4eda8a482cb62419fa0e33d4e9dfb78c
+  - enabled: 1
+    path: Assets/Scenes/M/M0.unity
+    guid: a9b93b9fe2d4e473fb2b8088b625744f
   - enabled: 1
     path: Assets/Scenes/Menu/Ballons Practice.unity
     guid: 4b8f61162db7f4435a15883439ce2410
@@ -71,6 +92,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/L/L7.unity
     guid: f93d32fe36c014e8b8df5062bc7396ea
+  - enabled: 1
+    path: Assets/Scenes/Sh/Sh0.unity
+    guid: aefb27f02a8804dc3bacc0aedcfb231c
+  - enabled: 1
+    path: Assets/Scenes/Sd/Sd0.unity
+    guid: 472d692ef5f724694ab9ddea38ca1a1d
   - enabled: 1
     path: Assets/Scenes/L/L8.unity
     guid: 002936d7b94d948b5b5427c935805d8e
@@ -134,6 +161,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/V/V8.unity
     guid: 2aa66fce6ecf94954ba66be24fcaa7fe
+  - enabled: 1
+    path: Assets/Scenes/K/K0.unity
+    guid: e963f3c345fab4c37b56032fcf98c578
   - enabled: 1
     path: Assets/Scenes/H/H0.unity
     guid: d355f5fbc210449b98d166e8b2f1c6f6
@@ -239,6 +269,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zl/Zl2.unity
     guid: 04cfc715787694626b0c77199ccefb59
+  - enabled: 1
+    path: Assets/Scenes/Zd/Zd0.unity
+    guid: 726bfc4d273634715b5333071d2ebd25
   - enabled: 1
     path: Assets/Scenes/Zl/Zl3.unity
     guid: 704c9a47c4b72423d95c5ca1d0089be2

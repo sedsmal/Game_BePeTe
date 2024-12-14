@@ -163,6 +163,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.DefaultCompany.BePeTe
     Standalone: com.DefaultCompany.Be-Pe-Te
+    iPhone: com.DefaultCompany.Be-Pe-Te
   buildNumber:
     Standalone: 0
     iPhone: 0
