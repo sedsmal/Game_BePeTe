@@ -15,11 +15,50 @@ EditorBuildSettings:
     path: Assets/Scenes/Eyn/Eyn0.unity
     guid: 6edb18cced3494998bda8764120038e6
   - enabled: 1
+    path: Assets/Scenes/Zh/Zh1.unity
+    guid: d36e1a6a4243e40ca937b3d6248253fe
+  - enabled: 1
+    path: Assets/Scenes/Zh/Zh0.unity
+    guid: 82a22b904968c424994a4edabe030b38
+  - enabled: 1
     path: Assets/Scenes/F/F0.unity
     guid: 40fb335f06ed940f18000a6e277cf4f2
   - enabled: 1
+    path: Assets/Scenes/G/G1.unity
+    guid: 9f731681f33c24927b1c491a29ac3670
+  - enabled: 1
+    path: Assets/Scenes/Eyn/Eyn1.unity
+    guid: 2259b11a1dc4d40c98edeb94e75064cd
+  - enabled: 1
+    path: Assets/Scenes/Sh/Sh1.unity
+    guid: 163597c6d00d540c99c8be6e8fb4af95
+  - enabled: 1
+    path: Assets/Scenes/Sd/Sd1.unity
+    guid: 6469998f03de14386a4a4eb65c21144d
+  - enabled: 1
+    path: Assets/Scenes/Zd/Zd1.unity
+    guid: f3f232d5ec0e241b9bd918f27b6524e0
+  - enabled: 1
+    path: Assets/Scenes/K/K1.unity
+    guid: 2a76ec3c7575a48df9a62935d492a6bc
+  - enabled: 1
+    path: Assets/Scenes/N/N1.unity
+    guid: 5b2ccc532ab8f4455bb448747dd730e7
+  - enabled: 1
+    path: Assets/Scenes/M/M1.unity
+    guid: dc237a138672e4c5bb13f7d902eed066
+  - enabled: 1
+    path: Assets/Scenes/Gh/Gh1.unity
+    guid: 6986e00074fd64dca98bbdc497179780
+  - enabled: 1
+    path: Assets/Scenes/F/F1.unity
+    guid: 6380cb0fe39bf47149177d9b3bbdf8ff
+  - enabled: 1
     path: Assets/Scenes/G/G0.unity
     guid: 928e5c37ae7554ac8ad994fb619668f9
+  - enabled: 1
+    path: Assets/Scenes/Ghyn/Ghyn1.unity
+    guid: 964de983332804a2480993268aab4a9c
   - enabled: 1
     path: Assets/Scenes/Gh/Gh0.unity
     guid: 40d048766784a404599d4b2d4484d52b

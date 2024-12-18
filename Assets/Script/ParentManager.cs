@@ -84,7 +84,7 @@ public class ParentManager : SingletonComponent<ParentManager>
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(WorldTimeAPI.Instance.leftMinute);
+//        Debug.Log(WorldTimeAPI.Instance.leftMinute);
         WriteLeftTime();
 
         if (WorldTimeAPI.Instance.isOnline)

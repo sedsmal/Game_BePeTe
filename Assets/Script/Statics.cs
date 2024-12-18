@@ -11,5 +11,6 @@ public static class Statics
     public static string nextLevel;
     public static string tempActiveScene;
     public static bool ispause;
+    public static string SaveText;
 
 }

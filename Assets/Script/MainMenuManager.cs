@@ -18,12 +18,32 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
     //public GameObject lockpopUp;
     public InputField inputField;
     public GameObject parentAuthen;
+    public GameObject StarGiftPopup;
+    public Button starGiftPopBtn;
+    public Text starGiftPopupText;
     public GameObject timeDetection;
     private Gyroscope gyro;
     public Text starText;
 
     public bool gyroEnabled = false;
 
+    //public Text coinText; // Reference to the UI Text for displaying coins
+    public float updateSpeed = 0.05f; // Speed of the number increment animation
+    private int currentCoins = 0; // Current coins displayed
+    private int targetCoins = 0; // Coins the player should have after collecting
+
+
+    private int currentGiftCoins = 0; // Current coins displayed
+    private int targetGiftCoins = 0; // Coins the player should have after collecting
+
+    public GameObject starPrefab; // Prefab for the star
+    public Transform spawnPosition; // The position where stars will appear
+    public Transform targetPosition; // The UI position of the coin counter
+    public int starCount = 10; // Number of stars to spawn
+    public float popupDuration = 0.5f; // Time for the star to pop up before moving
+    public float moveSpeed = 5f; // Speed of the stars moving to the target
+    public float spawnRadius = 1f; // Radius for random star spawn positions around the spawn point
+    private bool doesGive;
     private void Start()
     {
         gyroEnabled = EnableGyro();
@@ -44,18 +64,108 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         SoundManager.Instance.Play("music1");
         StartCoroutine(PlaySound("LevelIntro"));
         ServerManagment.Instance.InitializeServer();
-        starText.text=ArabicFixer.Fix( ObscuredPrefs.GetInt("st").ToString(),true,true);
+        currentCoins = ObscuredPrefs.GetInt("stT");
+        starText.text = ArabicFixer.Fix(currentCoins.ToString(),true,true);
+        doesGive = false;
+        StarGiftPopup.SetActive(false);
+        StartCoroutine(ShowGiveStar());
+    }
+
+    public void SpawnStars()
+    {
+        Destroy(starGiftPopBtn);
+        for (int i = 0; i < starCount; i++)
+            {
+                StartCoroutine(AnimateStar((i * 0.1f), i));
+            }
+    }
+
+
+    private IEnumerator AnimateStar( float delay,int i)
+    {
+        // Delay before starting the popup animation
+        yield return new WaitForSeconds(delay);
+        // Generate a random position around the spawn point
+        Vector3 randomOffset = Random.insideUnitCircle * spawnRadius;
+
+        Vector3 spawnPos = spawnPosition.position + randomOffset;
+
+        // Instantiate the star at the random position
+        GameObject star = Instantiate(starPrefab, spawnPos, Quaternion.identity);
+        star.transform.SetParent(starText.transform.parent.parent);
+        //targetPosition.transform.position-new Vector3(500,500,0)
+     
+        star.transform.DOLocalMove(targetPosition.transform.localPosition, 2).SetEase(Ease.InOutExpo).OnComplete(()=> { Destroy(star);
+            if (i == 6)
+            {
+                Destroy(spawnPosition.gameObject);
+            }
+            if (i == 9)
+            {
+                StarGiftPopup.transform.DOShakeScale(0.3f, 0.1f, 1, 2).OnComplete(() => { StarGiftPopup.SetActive(false); });  } });
+        star.transform.DOScale(new Vector3(0.2f,0.2f,0.2f), 1.5f);
+        star.transform.DOLocalRotate(
+               new Vector3(0f, 0, 360), 3, RotateMode.FastBeyond360).SetRelative(true).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
+
+        // Start the animation for each star
+
 
     }
 
-    private void GiveStar()
+
+
+    private IEnumerator ShowGiveStar()
     {
-        if (ObscuredPrefs.GetInt("st") > ObscuredPrefs.GetInt("stold"))
+        yield return new WaitForSeconds(0.3f);
+        //ObscuredPrefs.GetInt("st")
+        if (2 > 0 )
         {
-            starText.DOText(ObscuredPrefs.GetInt("st").ToString(),1f);
+            StarGiftPopup.SetActive(true);
+            StarGiftPopup.transform.DOShakeScale(0.3f, 0.1f, 1, 2);
+            starGiftPopupText.text = ArabicFixer.Fix(ObscuredPrefs.GetInt("st").ToString(), true, true);
+            
+        }
+        else
+        {
+            StarGiftPopup.SetActive(false);
         }
     }
-    private bool EnableGyro()
+
+    public void GiveStar()
+    {
+        Destroy(starGiftPopBtn.gameObject.GetComponent<ButtonPressAnimation>());
+            starGiftPopBtn.interactable = false;
+            int newStar = ObscuredPrefs.GetInt("st");
+            int oldStar = ObscuredPrefs.GetInt("stT");
+            
+            AddStars(newStar, starText, oldStar, newStar + oldStar);
+            AddStars(-newStar, starGiftPopupText, newStar, 0);
+            SpawnStars();
+            ObscuredPrefs.SetInt("stT", newStar + oldStar);
+            ObscuredPrefs.SetInt("st", 0);
+
+        //starText.DOText((newStar+oldStar).ToString(), 2f).OnComplete(()=> { StarGiftPopup.SetActive(false); });}
+
+    }
+        public void AddStars(int amount,Text txt, int currentCoins, int targetCoins)
+    {
+        targetCoins += amount; // Update the target coin count
+        StartCoroutine(AnimateCoinCount(txt, currentCoins, targetCoins)); // Start the animation
+    }
+
+    private IEnumerator AnimateCoinCount(Text txt,int currentCoins,int targetCoins)
+    {
+        // Animate until currentCoins matches targetCoins
+        while (currentCoins < targetCoins)
+        {
+            currentCoins++;
+            txt.text = currentCoins.ToString(); // Update the text
+            yield return new WaitForSeconds(updateSpeed); // Wait for a short moment
+
+        }
+        
+    }
+        private bool EnableGyro()
     {
         if (SystemInfo.supportsGyroscope)
         {
@@ -268,15 +378,11 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
     public void Type(string character)
     {
         if (inputField.text.Length < 6) { inputField.text += character; }
-
-
     }
 
     public void Remove()
     {
         if (inputField.text.Length > 0) { inputField.text = inputField.text.Remove(inputField.text.Length - 1); }
-
-
     }
 
     public void Confirm()
@@ -326,11 +432,8 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
             }
 
         }
-
-
-
-
     }
+
     public void HideParentAuthentication()
     {
         //parentAuthen.transform.DOScale(Vector3.zero, 0.1f).OnComplete(()=> { parentAuthen.SetActive(false); });
@@ -338,7 +441,6 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         parentAuthen.transform.DOShakeScale(0.2f, 0.5f, 3, 90).OnComplete(() => { parentAuthen.SetActive(false); });
 
     }
-
 
     public void ShowTimeDetection()
     {
@@ -348,13 +450,9 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
             timeDetection.GetComponent<CanvasGroup>().alpha = 0f;
             timeDetection.GetComponent<CanvasGroup>().DOFade(1, 0.4f);
             timeDetection.transform.DOShakeScale(0.3f, 0.5f, 3, 90);
-
         }
-
-
-
-
     }
+
     public void HidetimeDetection()
     {
         //parentAuthen.transform.DOScale(Vector3.zero, 0.1f).OnComplete(()=> { parentAuthen.SetActive(false); });

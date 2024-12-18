@@ -4,10 +4,10 @@ using UnityEngine;
 using CodeStage.AntiCheat.Storage;
 using BizzyBeeGames;
 using DG.Tweening;
-
+using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : SingletonComponent<LevelManager>
+public class LevelManager : SingletonComponent<LevelManager>,ISaveable
 {
     public int puzzlePieceCount;
     public GameObject winPopup;
@@ -16,7 +16,39 @@ public class LevelManager : SingletonComponent<LevelManager>
     private int progress;
 
     public ParticleSystem particle1, particle2, particle3, particle4;
+    #region Analyzer
+    int countOfPlay;
+    int lastTimeOfPlay;
+    int totalTimeOfPlay;
+    int bestTimeOfPlay;
+    #endregion
 
+    #region Properties
+    JSONNode savedJson;
+    public string SaveId { get { return SceneManager.GetActiveScene().name + " training"; } }
+    #endregion
+
+    private void Awake()
+    {
+        base.Awake();
+        SaveManager.Instance.Register(this);
+        if (!LoadSave())
+        {
+            countOfPlay = 0;
+            lastTimeOfPlay = 0;
+            bestTimeOfPlay = 0;
+            totalTimeOfPlay = 0;
+            Save();
+
+            // SaveManager.Instance.SaveNow();
+            savedJson = SaveManager.Instance.DeSerialize99();
+
+        }
+        else
+        {
+            savedJson = SaveManager.Instance.DeSerialize99();
+        }
+    }
     void Start()
     {
         progress = 0;
@@ -53,7 +85,7 @@ public class LevelManager : SingletonComponent<LevelManager>
     {
         if (progress == puzzlePieceCount)
         {
-            
+            CalculateTime();
             StartCoroutine(ShowWin());
         }
     }
@@ -69,7 +101,6 @@ public class LevelManager : SingletonComponent<LevelManager>
         winPopup.SetActive(true);
         celebrationParticle.Play();
         winPopup.transform.DOShakeScale(0.6f, 0.1f, 5, 90);
-        CalculateTime();
     }
 
 
@@ -149,9 +180,71 @@ public class LevelManager : SingletonComponent<LevelManager>
         int sec = Timer.Instance.WhatTimeIsIt();
         int min = Timer.Instance.WhatMinIsIt();
         int time = min * 60 + sec;
-        int count = ObscuredPrefs.GetInt(SceneManager.GetActiveScene().name + "Count");
-        int lastTime = ObscuredPrefs.GetInt(SceneManager.GetActiveScene().name);
-        ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name, time + lastTime);
-        ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", count + 1);
+
+        countOfPlay = countOfPlay + 1;
+        totalTimeOfPlay = time + totalTimeOfPlay;
+        if (time < bestTimeOfPlay && bestTimeOfPlay != 0)
+        {
+            bestTimeOfPlay = time;
+        }
+        lastTimeOfPlay = time;
+        SaveManager.Instance.SaveNow();
+        Save();
+
+        //countOfPlay = ObscuredPrefs.GetInt(SceneManager.GetActiveScene().name + "Count");
+        //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name, time + lastTimeOfPlay);
+        //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", countOfPlay + 1);
     }
+
+
+    #region Save Methods
+
+    public Dictionary<string, object> Save()
+    {
+        Dictionary<string, object> json;
+
+        if (savedJson == null || savedJson == "")
+        {
+
+            json = new Dictionary<string, object>();
+        }
+        else
+        {
+            if (savedJson[SaveId] == null || savedJson[SaveId] == "")
+            {
+                json = new Dictionary<string, object>();
+            }
+            else
+            {
+                json = JsonConvert.DeserializeObject<Dictionary<string, object>>(savedJson[SaveId].ToString());
+            }
+
+        }
+
+        json["lastTimeOfPlay"] = lastTimeOfPlay;
+        json["bestTimeOfPlay"] = bestTimeOfPlay;
+        json["totalTimeOfPlay"] = totalTimeOfPlay;
+        json["countOfPlay"] = countOfPlay;
+        //json["lotterylefttime"] = leftTime;
+
+        return json;
+    }
+
+    public bool LoadSave()
+    {
+        JSONNode json = SaveManager.Instance.LoadSave(this);
+
+        if (json == null)
+        {
+
+            return false;
+        }
+
+        countOfPlay = int.Parse(json["countOfPlay"].Value);
+        lastTimeOfPlay = int.Parse(json["lastTimeOfPlay"].Value);
+        bestTimeOfPlay = int.Parse(json["bestTimeOfPlay"].Value);
+        totalTimeOfPlay = int.Parse(json["totalTimeOfPlay"].Value);
+        return true;
+    }
+    #endregion
 }

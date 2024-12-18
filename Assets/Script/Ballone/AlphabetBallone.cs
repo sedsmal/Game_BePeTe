@@ -30,20 +30,21 @@ public class AlphabetBallone : MonoBehaviour
             {
                 BallonesPracticeManager.Instance.HitBallone();
             }
-
+            BallonesPracticeManager.Instance.HideHelp();
             if (transform.childCount > 1)
                 Destroy(transform.GetChild(transform.childCount - 1).gameObject);
         }
         else
         {
             BallonesManager.Instance.HitBallone();
+            BallonesManager.Instance.HideHelp();
         }
         
         particle.Play();
         particle2.Play();
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-        BallonesPracticeManager.Instance.HideHelp();
+        
 
 
     }

@@ -17,7 +17,7 @@ public class Loading : SingletonComponent<Loading>
     void Start()
     {
         //StartCoroutine(LoadSceneAsync());
-
+//        Debug.Log(SaveManager.Instance.MainSaveJson);
         animator = GetComponent<Animator>();
         if(SceneManager.GetActiveScene().name != "Main Menu" && SceneManager.GetActiveScene().name != "Loading") { ShowUnLoading();
         }
@@ -35,6 +35,8 @@ public class Loading : SingletonComponent<Loading>
     {
         ////SceneManager.LoadScene(nextLevelid);
         //Debug.Log(nextLevelid + SceneManager.GetActiveScene().name);//b0a9 //a0menualphabet
+        
+
         if (SceneManager.GetActiveScene().name == "Loading")
         {
             //check AR Support Deveice
