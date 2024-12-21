@@ -95,7 +95,7 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         star.transform.SetParent(starText.transform.parent.parent);
         //targetPosition.transform.position-new Vector3(500,500,0)
      
-        star.transform.DOLocalMove(targetPosition.transform.localPosition, 2).SetEase(Ease.InOutExpo).OnComplete(()=> { Destroy(star);
+        star.transform.DOLocalMove(targetPosition.transform.localPosition, 1).SetEase(Ease.OutSine).OnComplete(()=> { Destroy(star);
             if (i == 6)
             {
                 Destroy(spawnPosition.gameObject);
@@ -118,7 +118,7 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
     {
         yield return new WaitForSeconds(0.3f);
         //ObscuredPrefs.GetInt("st")
-        if (2 > 0 )
+        if (ObscuredPrefs.GetInt("st") > 0 )
         {
             StarGiftPopup.SetActive(true);
             StarGiftPopup.transform.DOShakeScale(0.3f, 0.1f, 1, 2);
@@ -150,7 +150,12 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         public void AddStars(int amount,Text txt, int currentCoins, int targetCoins)
     {
         targetCoins += amount; // Update the target coin count
-        StartCoroutine(AnimateCoinCount(txt, currentCoins, targetCoins)); // Start the animation
+
+        if (amount>0)
+            StartCoroutine(AnimateCoinCount(txt, currentCoins, targetCoins)); // Start the animation
+
+        if (amount < 0)
+            StartCoroutine(AnimateCoinCountDown(txt, currentCoins, 0)); // Start the animation
     }
 
     private IEnumerator AnimateCoinCount(Text txt,int currentCoins,int targetCoins)
@@ -165,7 +170,19 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         }
         
     }
-        private bool EnableGyro()
+    private IEnumerator AnimateCoinCountDown(Text txt, int currentCoins, int targetCoins)
+    {
+        // Animate until currentCoins matches targetCoins
+        while (currentCoins > targetCoins)
+        {
+            currentCoins--;
+            txt.text = currentCoins.ToString(); // Update the text
+            yield return new WaitForSeconds(updateSpeed); // Wait for a short moment
+
+        }
+
+    }
+    private bool EnableGyro()
     {
         if (SystemInfo.supportsGyroscope)
         {

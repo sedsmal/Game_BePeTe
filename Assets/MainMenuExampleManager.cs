@@ -32,24 +32,37 @@ public class MainMenuExampleManager : SingletonComponent<MainMenuExampleManager>
             if (activeElement.name.Contains(transform.GetChild(a).gameObject.name)&&a==activeCol)
             {
                 string name = transform.GetChild(a).gameObject.name;
-                
-                GameObject n = Instantiate(prefabs[i], this.transform, false);
-                n.GetComponent<MainMenuChangingButton>().col = activeCol;
-                n.name = n.name.Remove(n.name.Length - 7);
+                GameObject pa = Instantiate(cloadParticle, transform.GetChild(a), false);
 
-                GameObject pa = Instantiate(cloadParticle, this.transform, false);
+                //GameObject n = Instantiate(prefabs[i], this.transform, false);
+                //n.GetComponent<MainMenuChangingButton>().col = activeCol;
 
-                Destroy(transform.GetChild(a).gameObject);
-                n.transform.SetSiblingIndex(a);
-                StartCoroutine(Save());
-                changePopup.SetActive(false);
+                //n.transform.position = transform.GetChild(a).gameObject.transform.position;
+                //n.name = n.name.Remove(n.name.Length - 7);
+                //Destroy(transform.GetChild(a).gameObject);
+                //n.transform.SetSiblingIndex(a);
+                //StartCoroutine(Save());
+                //changePopup.SetActive(false);
+                StartCoroutine(SetElementIe(i, a,pa));
             }
 
         }
+    }
 
-        
-        
-
+    IEnumerator SetElementIe(int i , int a,GameObject pa)
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameObject n = Instantiate(prefabs[i], this.transform, false);
+        n.GetComponent<MainMenuChangingButton>().col = activeCol;
+        pa.transform.SetParent(n.transform);
+        n.transform.position = transform.GetChild(a).gameObject.transform.position;
+        n.transform.GetChild(0).GetChild(1).DOShakeRotation(2, 20, 4, 90);
+        pa.transform.position = n.transform.position;
+        n.name = n.name.Remove(n.name.Length - 7);
+        Destroy(transform.GetChild(a).gameObject);
+        n.transform.SetSiblingIndex(a);
+        StartCoroutine(Save());
+        changePopup.SetActive(false);
     }
 
     public void ExampleElementButton(GameObject thisGo,int activeColl)

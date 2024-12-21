@@ -41,6 +41,18 @@ public class HiBuy : MonoBehaviour
         {
             PurchaseStaff[6].SetActive(true);
         }
+        else if (type == 7)
+        {
+            PurchaseStaff[7].SetActive(true);
+        }
+        else if (type == 8)
+        {
+            PurchaseStaff[8].SetActive(true);
+        }
+        else if (type == 9)
+        {
+            PurchaseStaff[9].SetActive(true);
+        }
     }
 
 }

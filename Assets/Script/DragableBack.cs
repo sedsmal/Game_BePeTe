@@ -219,6 +219,8 @@ public class DragableBack : MonoBehaviour, IDragHandler, IEndDragHandler,IBeginD
                    // StartCoroutine(Pause());
 
                     Time.timeScale = 0;
+                    SoundManager.Instance.SetSoundTypeOnOff(SoundManager.SoundType.Music, false);
+                    SoundManager.Instance.SetSoundTypeOnOff(SoundManager.SoundType.SoundEffect, false);
                 });
             }
         }
@@ -226,6 +228,8 @@ public class DragableBack : MonoBehaviour, IDragHandler, IEndDragHandler,IBeginD
         {
             buttonIcon.sprite = icons[0];
             Time.timeScale = 1;
+            SoundManager.Instance.SetSoundTypeOnOff(SoundManager.SoundType.Music, true);
+            SoundManager.Instance.SetSoundTypeOnOff(SoundManager.SoundType.SoundEffect, true);
 
             foreach (Image i in backobjects)
             {
