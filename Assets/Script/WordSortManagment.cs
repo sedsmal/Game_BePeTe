@@ -14,11 +14,29 @@ public class WordSortManagment : SingletonComponent<WordSortManagment>
         
         StartCoroutine(PlaySound("Intro5"));
 
+        foreach (var word in alphabet)
+        {
+            word.GetComponent<BoxCollider2D>().enabled = false;
+        }
+
     }
     public void PlayAnimation()
     {
         GetComponent<Animator>().enabled = true;
         GetComponent<Animator>().SetTrigger("play");
+
+        foreach (var word in alphabet)
+        {
+            word.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+    public void EndAnimation()
+    {
+        //its use in animation triger
+        foreach (var word in alphabet)
+        {
+            word.GetComponent<BoxCollider2D>().enabled = true;
+        }
     }
     public IEnumerator PlaySound(string soundname)
     {
