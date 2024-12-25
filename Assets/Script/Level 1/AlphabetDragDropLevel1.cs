@@ -45,12 +45,12 @@ public class AlphabetDragDropLevel1 : MonoBehaviour
         if (collision.CompareTag("GrayPuzzleLevel1"))
         {
             isHit = true;
-            transform.localScale = defScale;
+            
             transform.position = collision.transform.position;
             collision.GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<BoxCollider2D>().isTrigger = true;
             transform.rotation = Quaternion.identity;
-            transform.DOShakeScale(0.5f, 0.3f, 10, 90);
+            transform.DOShakeScale(0.5f, 0.3f, 10, 90).OnComplete(() => { transform.localScale = defScale; });
             transform.localScale = defScale;
             Level1Example.Instance.Shake();
             SoundManager.Instance.Play("win");

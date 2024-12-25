@@ -23,7 +23,7 @@ public class Basket : MonoBehaviour
         {
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             SoundManager.Instance.Play("alphabet");
-            transform.DOShakeScale(0.5f, 0.5f, 10, 90);
+            transform.DOShakeScale(0.5f, 0.5f, 10, 90).OnComplete(() => { transform.localScale = defaultScale; }); 
             FruiteManager.Instance.HideHelp();
         }
 
@@ -79,7 +79,7 @@ public class Basket : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        transform.DOShakeScale(0.4f, 0.1f, 5, 90);
+        transform.DOShakeScale(0.4f, 0.1f, 5, 90).OnComplete(() => { transform.localScale = defaultScale; });
 
     }
 }

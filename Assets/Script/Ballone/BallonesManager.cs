@@ -34,23 +34,23 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
     private void Awake()
     {
         base.Awake();
-        //SaveManager.Instance.Register(this);
-        //if (!LoadSave())
-        //{
-        //    countOfPlay = 0;
-        //    lastTimeOfPlay = 0;
-        //    bestTimeOfPlay = 0;
-        //    totalTimeOfPlay = 0;
-        //    Save();
+        SaveManager.Instance.Register(this);
+        if (!LoadSave())
+        {
+            countOfPlay = 0;
+            lastTimeOfPlay = 0;
+            bestTimeOfPlay = 0;
+            totalTimeOfPlay = 0;
+            Save();
 
-        //    // SaveManager.Instance.SaveNow();
-        //    savedJson = SaveManager.Instance.DeSerialize99();
+            // SaveManager.Instance.SaveNow();
+            savedJson = SaveManager.Instance.DeSerialize99();
 
-        //}
-        //else
-        //{
-        //    savedJson = SaveManager.Instance.DeSerialize99();
-        //}
+        }
+        else
+        {
+            savedJson = SaveManager.Instance.DeSerialize99();
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
         StartCoroutine(HideHelpWithDelay());
         winPopup.SetActive(false);
         SoundManager.Instance.Play("music1");
-        //Timer.Instance.beginTimer();
+        Timer.Instance.beginTimer();
         
     }
 
@@ -126,9 +126,9 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
         {
             SoundManager.Instance.Play("like");
         }
-        HideHelp();
+
         SoundManager.Instance.Play("win");
-        //CalculateTime();
+        CalculateTime();
         StartCoroutine(Win());
 
     }
@@ -184,23 +184,26 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
         yield return new WaitForSeconds(4f);
         HideHelp();
     }
-    //public void CalculateTime()
-    //{
-    //    int sec = Timer.Instance.WhatTimeIsIt();
-    //    int min = Timer.Instance.WhatMinIsIt();
-    //    int time = min * 60 + sec;
+    public void CalculateTime()
+    {
+        int sec = Timer.Instance.WhatTimeIsIt();
+        int min = Timer.Instance.WhatMinIsIt();
+        int time = min * 60 + sec;
 
-    //    countOfPlay = countOfPlay + 1;
-    //    totalTimeOfPlay = time + totalTimeOfPlay;
-    //    if (time < bestTimeOfPlay && bestTimeOfPlay != 0)
-    //    {
-    //        bestTimeOfPlay = time;
-    //    }
-    //    lastTimeOfPlay = time;
+        countOfPlay = countOfPlay + 1;
+        totalTimeOfPlay = time + totalTimeOfPlay;
+        if (time < bestTimeOfPlay && bestTimeOfPlay != 0)
+        {
+            bestTimeOfPlay = time;
+        }
+        lastTimeOfPlay = time;
 
-    //    Save();
-    //    SaveManager.Instance.SaveNow();
-    //}
+        Save();
+        SaveManager.Instance.SaveNow();
+        //countOfPlay = ObscuredPrefs.GetInt(SceneManager.GetActiveScene().name + "Count");
+        //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name, time + lastTimeOfPlay);
+        //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", countOfPlay + 1);
+    }
 
 
     #region Save Methods

@@ -424,6 +424,8 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         }
         else
         {
+            SoundManager.Instance.Stop("wrong parents");
+            SoundManager.Instance.Stop("parents");
             SoundManager.Instance.Play("wrong parents");
             inputField.text = "";
         }
@@ -439,11 +441,15 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
             parentAuthen.transform.DOShakeScale(0.3f, 0.5f, 3, 90);
             if (SceneManager.GetActiveScene().name == "Main Menu")
             {
+                SoundManager.Instance.Stop("LevelIntro");
+                SoundManager.Instance.Stop("parents");
                 StartCoroutine(PlaySound("parents"));
             }
             else if (SceneManager.GetActiveScene().name == "Menu Alphabets 1")
             {
-               // SoundManager.Instance.Play("buyPremium");
+                // SoundManager.Instance.Play("buyPremium");
+                SoundManager.Instance.Stop("parents");
+                SoundManager.Instance.Stop("LevelIntro");
                 StartCoroutine(PlaySound("buyPremium"));
 
             }
@@ -454,6 +460,7 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
     public void HideParentAuthentication()
     {
         //parentAuthen.transform.DOScale(Vector3.zero, 0.1f).OnComplete(()=> { parentAuthen.SetActive(false); });
+        SoundManager.Instance.Stop("parents");
         parentAuthen.GetComponent<CanvasGroup>().DOFade(0, 0.1f);
         parentAuthen.transform.DOShakeScale(0.2f, 0.5f, 3, 90).OnComplete(() => { parentAuthen.SetActive(false); });
 

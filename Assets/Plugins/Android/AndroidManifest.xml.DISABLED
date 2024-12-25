@@ -13,5 +13,6 @@
             </intent-filter>
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
         </activity>
+		<uses-permission android:name="android.permission.INTERNET" />
     </application>
 </manifest>
