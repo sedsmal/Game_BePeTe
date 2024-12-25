@@ -8,10 +8,14 @@ public class spaceShip : MonoBehaviour
 {
     private float? lastMousePoint = null;
     Vector3 lastMouse;
-
+    private Vector3 defaultScale;
+    private void Start()
+    {
+        defaultScale = transform.localScale;
+    }
     private void OnMouseDown()
     {
-        transform.DOShakeScale(0.5f, 0.5f, 10, 90);
+        transform.DOShakeScale(0.5f, 0.5f, 10, 90).OnComplete(() => { transform.localScale = defaultScale; }); 
     }
     //Update is called once per frame
     void Update()
