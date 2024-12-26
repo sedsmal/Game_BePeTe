@@ -12188,7 +12188,7 @@ MonoBehaviour:
     clipVolume: 1
     canDuplicate: 0
   - id: like
-    audioClip: {fileID: 8300000, guid: 959734c3a55b440c88ac3366f8f3208c, type: 3}
+    audioClip: {fileID: 8300000, guid: 4f423c345c46747088ac5785910dabdd, type: 3}
     type: 0
     playAndLoopOnStart: 0
     clipVolume: 1

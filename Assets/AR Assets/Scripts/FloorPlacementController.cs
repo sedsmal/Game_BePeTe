@@ -51,6 +51,7 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
     public int totalNumberOfDestrory;
     public GameObject winPopUp;
     public ParticleSystem celebrationParticle;
+    public GameObject reStartBtn;
     [HideInInspector]public ARAnchorManager aRAnchorManager;
 
 
@@ -65,7 +66,8 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
     JSONNode savedJson;
     public string SaveId { get { return SceneManager.GetActiveScene().name + " training"; } }
     #endregion
-
+    public float timerDuration = 20.0f; // Time in seconds
+    private float timer = 0.0f;
 
     private void OnEnable()
     {
@@ -139,12 +141,19 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
     }
     void Update()
     {
-        //if (aRPlaneManager.trackables.count > 1)
-        //{
-        //    DestroyPlane();
-        //}
 
-        if (selectPlane.enabled && aRPlaneManager.trackables.count > 0&&!surfaceFound)
+        timer += Time.deltaTime;
+
+        if (timer >= timerDuration && (aRPlaneManager.trackables.count == 0 ) )
+        {
+            // Code to be executed every 'timerDuration' seconds
+            InvokeRepeating("ReplaySoundPlay", 0, 10);
+
+            // Reset the timer
+            timer = 0.0f;
+        }
+
+        if (selectPlane.enabled && aRPlaneManager.trackables.count > 0 && !surfaceFound)
         {
             
             StartGameAutomaticaly2();
@@ -206,6 +215,11 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
         //    }
         //}
     }
+
+    public void ReplaySoundPlay() { SoundManager.Instance.Play("ReplayInfo");
+    reStartBtn.transform.DOShakeScale(0.5f, 0.5f, 10, 90).OnComplete(() => { transform.localScale = new Vector3(1.5f,1.5f,1.5f); });
+    }
+
     public void StartGameAutomaticaly()
 
     {

@@ -604,7 +604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -106.00006, y: 282}
+  m_AnchoredPosition: {x: -106.00006, y: 292}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132179020
@@ -1118,6 +1118,12 @@ MonoBehaviour:
     canDuplicate: 1
   - id: StartPlay
     audioClip: {fileID: 8300000, guid: b5bc8669555dc42ceaf220067e5763e3, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 1
+    canDuplicate: 1
+  - id: ReplayInfo
+    audioClip: {fileID: 8300000, guid: beb3f02b17e0c474d9bcb4b32eb8ef64, type: 3}
     type: 0
     playAndLoopOnStart: 0
     clipVolume: 1
@@ -8139,12 +8145,12 @@ PrefabInstance:
     - target: {fileID: 1525537664499999964, guid: 300d5bad174a34fb38a1f1cc15ce3546,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 1944.6
       objectReference: {fileID: 0}
     - target: {fileID: 1525537664499999964, guid: 300d5bad174a34fb38a1f1cc15ce3546,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 178.34802
+      value: 178.348
       objectReference: {fileID: 0}
     - target: {fileID: 1525537664499999964, guid: 300d5bad174a34fb38a1f1cc15ce3546,
         type: 3}
@@ -8253,7 +8259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -106, y: 461}
+  m_AnchoredPosition: {x: -106, y: 471}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522897165
@@ -27166,6 +27172,7 @@ MonoBehaviour:
   totalNumberOfDestrory: 19
   winPopUp: {fileID: 169881323}
   celebrationParticle: {fileID: 1704110575}
+  reStartBtn: {fileID: 132179014}
   aRAnchorManager: {fileID: 0}
 --- !u!114 &1385800135
 MonoBehaviour:
@@ -28491,6 +28498,7 @@ MonoBehaviour:
   totalNumberOfDestrory: 45
   winPopUp: {fileID: 169881323}
   celebrationParticle: {fileID: 0}
+  reStartBtn: {fileID: 0}
   aRAnchorManager: {fileID: 0}
 --- !u!114 &1544523878
 MonoBehaviour:
@@ -29142,6 +29150,7 @@ MonoBehaviour:
   totalNumberOfDestrory: 0
   winPopUp: {fileID: 0}
   celebrationParticle: {fileID: 0}
+  reStartBtn: {fileID: 0}
   aRAnchorManager: {fileID: 0}
 --- !u!114 &1586402800
 MonoBehaviour:
@@ -44591,7 +44600,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -106, y: 91}
+  m_AnchoredPosition: {x: -106, y: 101}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1794401516
