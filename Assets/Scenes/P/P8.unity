@@ -558,6 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPulse: 0
+  isHearyPulse: 0
   pressPower: 0.95
 --- !u!114 &132179024
 MonoBehaviour:
@@ -1031,6 +1032,18 @@ MonoBehaviour:
     canDuplicate: 1
   - id: ChoosePlace
     audioClip: {fileID: 8300000, guid: 75e627713aba84ae2ac7a5e159f49306, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 1
+    canDuplicate: 1
+  - id: ReplayInfo
+    audioClip: {fileID: 8300000, guid: beb3f02b17e0c474d9bcb4b32eb8ef64, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 1
+    canDuplicate: 1
+  - id: StartPlay
+    audioClip: {fileID: 8300000, guid: b5bc8669555dc42ceaf220067e5763e3, type: 3}
     type: 0
     playAndLoopOnStart: 0
     clipVolume: 1
@@ -8261,6 +8274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPulse: 1
+  isHearyPulse: 0
   pressPower: 0.8
 --- !u!114 &545170716
 MonoBehaviour:
@@ -13668,6 +13682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPulse: 1
+  isHearyPulse: 0
   pressPower: 0.8
 --- !u!114 &619254175
 MonoBehaviour:
@@ -20506,6 +20521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPulse: 0
+  isHearyPulse: 0
   pressPower: 0.8
 --- !u!114 &891449010
 MonoBehaviour:
@@ -29679,6 +29695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPulse: 0
+  isHearyPulse: 0
   pressPower: 0.8
 --- !u!114 &1573241679
 MonoBehaviour:
@@ -45701,6 +45718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPulse: 0
+  isHearyPulse: 0
   pressPower: 0.95
 --- !u!114 &1794401517
 MonoBehaviour:

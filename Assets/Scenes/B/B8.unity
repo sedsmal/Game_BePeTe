@@ -879,6 +879,12 @@ MonoBehaviour:
     playAndLoopOnStart: 0
     clipVolume: 1
     canDuplicate: 1
+  - id: ReplayInfo
+    audioClip: {fileID: 8300000, guid: beb3f02b17e0c474d9bcb4b32eb8ef64, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 1
+    canDuplicate: 1
 --- !u!1 &172314322
 GameObject:
   m_ObjectHideFlags: 0

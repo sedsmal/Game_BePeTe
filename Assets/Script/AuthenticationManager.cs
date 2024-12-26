@@ -12,7 +12,7 @@ public class AuthenticationManager : MonoBehaviour
         {
             ObscuredPrefs.SetString("ParentLockCode", "10 + 99 = ؟");
             ObscuredPrefs.SetString("ParentLockCodeAnsware", "109");
-            ObscuredPrefs.SetInt("st", 21);
+            ObscuredPrefs.SetInt("stT", 21);
             ObscuredPrefs.SetInt("stold", 0);
         }
     }
