@@ -21,7 +21,14 @@ public class LockManager : SingletonComponent<LockManager>,ISaveable
     int lastTimeOfPlay;
     int totalTimeOfPlay;
     int bestTimeOfPlay;
+    int countOfTouch;
+    int countOfCorrectTouch;
     #endregion
+
+    private Gyroscope gyroscope;
+    private bool isGyroAvailable = false;
+
+    float movementMagnitude; // This will hold the calculated movement
 
     #region Properties
     JSONNode savedJson;
@@ -38,6 +45,9 @@ public class LockManager : SingletonComponent<LockManager>,ISaveable
             lastTimeOfPlay = 0;
             bestTimeOfPlay = 0;
             totalTimeOfPlay = 0;
+            countOfTouch = 0;
+            movementMagnitude = 0;
+            countOfCorrectTouch = 0;
             Save();
 
             // SaveManager.Instance.SaveNow();
@@ -63,6 +73,16 @@ public class LockManager : SingletonComponent<LockManager>,ISaveable
         Timer.Instance.beginTimer();
         StartCoroutine(PlaySound("LevelIntro"));
 
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyroscope = Input.gyro;
+            gyroscope.enabled = true; // Enable the gyroscope
+            isGyroAvailable = true;
+        }
+        else
+        {
+            Debug.LogWarning("Gyroscope not supported on this device.");
+        }
     }
 
     public void StartPlay()
@@ -169,7 +189,45 @@ public class LockManager : SingletonComponent<LockManager>,ISaveable
         //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name, time + lastTimeOfPlay);
         //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", countOfPlay + 1);
     }
+    public void TouchCounter()
+    {
+        // Check for touches on a touch-enabled device
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    countOfTouch++;
+                    //Debug.Log("Total Touches: " + countOfTouch);
+                }
+            }
+        }
 
+        // Optional: Check for mouse clicks as simulated touches in the editor
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        {
+            countOfTouch++;
+            //Debug.Log("Total Touches: " + countOfTouch);
+        }
+#endif
+    }
+
+    public void CalcGyroMovement()
+    {
+
+
+        if (isGyroAvailable)
+        {
+            // Get the gyroscope rotation rate (angular velocity in radians per second)
+            Vector3 gyroRotationRate = gyroscope.rotationRate;
+
+            // Calculate the magnitude of the rotation
+            movementMagnitude = gyroRotationRate.magnitude;
+        }
+
+    }
 
     #region Save Methods
 
@@ -198,6 +256,9 @@ public class LockManager : SingletonComponent<LockManager>,ISaveable
         json["bestTimeOfPlay"] = bestTimeOfPlay;
         json["totalTimeOfPlay"] = totalTimeOfPlay;
         json["countOfPlay"] = countOfPlay;
+        json["countOfTouch"] = countOfTouch;
+        json["countOfCorrectTouch"] = countOfCorrectTouch;
+        json["movementMagnitude"] = movementMagnitude;
         //json["lotterylefttime"] = leftTime;
 
         return json;
@@ -217,6 +278,9 @@ public class LockManager : SingletonComponent<LockManager>,ISaveable
         lastTimeOfPlay = int.Parse(json["lastTimeOfPlay"].Value);
         bestTimeOfPlay = int.Parse(json["bestTimeOfPlay"].Value);
         totalTimeOfPlay = int.Parse(json["totalTimeOfPlay"].Value);
+        countOfTouch = int.Parse(json["countOfTouch"].Value);
+        countOfCorrectTouch = int.Parse(json["countOfCorrectTouch"].Value);
+        movementMagnitude = float.Parse(json["movementMagnitude"].Value);
         return true;
     }
     #endregion

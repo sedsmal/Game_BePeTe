@@ -18,10 +18,17 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
 
     #region Analyzer
     int countOfPlay;
+    int countOfTouch;
+    int countOfCorrectTouch;
     int lastTimeOfPlay;
     int totalTimeOfPlay;
     int bestTimeOfPlay;
     #endregion
+    private Gyroscope gyroscope;
+    private bool isGyroAvailable = false;
+
+    public float movementMagnitude; // This will hold the calculated movement
+
 
     #region Properties
     JSONNode savedJson;
@@ -36,9 +43,13 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
         if (!LoadSave())
         {
             countOfPlay = 0;
+            countOfTouch = 0;
+
             lastTimeOfPlay = 0;
             bestTimeOfPlay = 0;
             totalTimeOfPlay = 0;
+            movementMagnitude = 0f;
+            countOfCorrectTouch = 0;
             Save();
 
             // SaveManager.Instance.SaveNow();
@@ -54,6 +65,17 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
     // Start is called before the first frame update
     void Start()
     {
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyroscope = Input.gyro;
+            gyroscope.enabled = true; // Enable the gyroscope
+            isGyroAvailable = true;
+        }
+        else
+        {
+            Debug.LogWarning("Gyroscope not supported on this device.");
+        }
+
         foreach (Image a in goals)
         {
             a.color = new Color(1, 1, 1, 0.3f);
@@ -67,8 +89,7 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
     // Update is called once per frame
     void Update()
     {
-        //int time = Timer.Instance.WhatTimeIsIt();
-        //Debug.Log("Time: " + time);
+        CalcGyroMovement();
     }
 
     public void PlaySoundImmediately(string soundname)
@@ -85,6 +106,7 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
     public void FindAlphabet()
     {
         count++;
+        countOfCorrectTouch++;
         goals[count - 1].color = new Color(1, 1, 1, 1);
         goals[count - 1].transform.DOShakeScale(0.4f, 0.1f, 5, 90);
         SoundManager.Instance.Play("alphabet");
@@ -109,6 +131,7 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
         {
             CalculateTime();
             SaveManager.Instance.SaveNow();
+            //gyroscope.enabled = false;
             StartCoroutine(ShowWin());
         }
     }
@@ -174,6 +197,47 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
         //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", countOfPlay + 1);
     }
 
+    public void TouchCounter()
+    {
+        // Check for touches on a touch-enabled device
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    countOfTouch++;
+                    //Debug.Log("Total Touches: " + countOfTouch);
+                }
+            }
+        }
+
+        // Optional: Check for mouse clicks as simulated touches in the editor
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        {
+            countOfTouch++;
+            //Debug.Log("Total Touches: " + countOfTouch);
+        }
+#endif
+    }
+
+    public void CalcGyroMovement()
+    {
+        
+
+        if (isGyroAvailable)
+        {
+            // Get the gyroscope rotation rate (angular velocity in radians per second)
+            Vector3 gyroRotationRate = gyroscope.rotationRate;
+
+            // Calculate the magnitude of the rotation
+            movementMagnitude = gyroRotationRate.magnitude;
+        }
+
+    }
+
+
     #region Save Methods
 
     public Dictionary<string, object> Save()
@@ -202,6 +266,9 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
         json["bestTimeOfPlay"] = bestTimeOfPlay;
         json["totalTimeOfPlay"] = totalTimeOfPlay;
         json["countOfPlay"] = countOfPlay;
+        json["countOfTouch"] = countOfTouch;
+        json["countOfCorrectTouch"] = countOfCorrectTouch;
+        json["movementMagnitude"] = movementMagnitude;
 
         return json;
     }
@@ -219,6 +286,9 @@ public class VRManagment : SingletonComponent<VRManagment>,ISaveable
         lastTimeOfPlay = int.Parse(json["lastTimeOfPlay"].Value);
         bestTimeOfPlay = int.Parse(json["bestTimeOfPlay"].Value);
         totalTimeOfPlay = int.Parse(json["totalTimeOfPlay"].Value);
+        countOfTouch = int.Parse(json["countOfTouch"].Value);
+        countOfCorrectTouch = int.Parse(json["countOfCorrectTouch"].Value);
+        movementMagnitude = float.Parse(json["movementMagnitude"].Value);
         return true;
     }
     #endregion
