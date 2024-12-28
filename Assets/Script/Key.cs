@@ -19,7 +19,7 @@ public class Key : MonoBehaviour
             LockManager.Instance.HideHelp();
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             SoundManager.Instance.Play("alphabet");
-            transform.DOShakeScale(0.5f, 0.5f, 10, 90);
+            transform.DOShakeScale(0.5f, 0.5f, 5, 1);
         }
     }
 
@@ -31,8 +31,6 @@ public class Key : MonoBehaviour
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
             transform.position = curPosition;
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,15 +75,22 @@ public class Key : MonoBehaviour
 
             }
 
-            collision.transform.DOShakeScale(0.5f, 0.5f, 10, 90).OnComplete(()=>
-            { collision.transform.localScale = DefaultColScale; transform.DOShakeScale(0.5f, 0.3f, 10, 90).OnComplete(()=>
-            { transform.localScale = DefaultScale; }); });
+            //collision.transform.DOShakeScale(0.5f, 0.5f, 1, 1).OnComplete(()=>
+            //{ collision.transform.localScale = DefaultColScale; transform.DOShakeScale(0.5f, 0.3f, 1, 1).OnComplete(()=>
+            //{ transform.localScale = DefaultScale; }); });
 
 
         }
         else
         {
-            GameObject.FindGameObjectWithTag(tagg).transform.DOShakeRotation(0.7f, 40, 10, 90).OnComplete(()=> { GameObject.FindGameObjectWithTag(tagg).transform.rotation = Quaternion.identity; });
+            if (!collision.name.Contains("key"))
+            {
+                LockManager.Instance.PlaySoundImmediately("Unlock");
+
+                GameObject.FindGameObjectWithTag(tagg).transform.DOShakeRotation(0.3f, 30, 1, 1).OnComplete(() => { GameObject.FindGameObjectWithTag(tagg).transform.rotation = Quaternion.identity; });
+
+            }
+               
         }
     }
 }

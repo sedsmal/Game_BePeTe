@@ -31,6 +31,15 @@ public class Bubble : MonoBehaviour
             {
                 alphabet.Play();
                 SoundManager.Instance.Play("win");
+                int rand = UnityEngine.Random.Range(0, 20);
+                if (rand < 10)
+                {
+                    SoundManager.Instance.Play("afarin");
+                }
+                else if (rand >= 10 && rand < 15)
+                {
+                    SoundManager.Instance.Play("ali");
+                }
                 underSeaManager.Instance.Win();
             }
             else
@@ -40,19 +49,11 @@ public class Bubble : MonoBehaviour
 
                 {
                     int rand = UnityEngine.Random.Range(0, 20);
-                    if (rand < 3)
-                    {
-                        SoundManager.Instance.Play("afarin");
-                    }
-                    else if (rand >= 3 && rand < 5)
-                    {
-                        SoundManager.Instance.Play("ali");
-                    }
-                    else
+                    if (rand < 12)
                     {
                         SoundManager.Instance.Play("false");
                     }
-                    
+
                 }
                 else
                 {
@@ -72,10 +73,6 @@ public class Bubble : MonoBehaviour
                     {
                         SoundManager.Instance.Play("hit");
                     }
-
-
-
-
                 }
             }
 

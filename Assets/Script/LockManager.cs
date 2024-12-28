@@ -165,10 +165,8 @@ public class LockManager : SingletonComponent<LockManager>,ISaveable
         SaveManager.Instance.SaveNow();
         Save();
 
-        //countOfPlay = ObscuredPrefs.GetInt(SceneManager.GetActiveScene().name + "Count");
-        //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name, time + lastTimeOfPlay);
-        //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", countOfPlay + 1);
     }
+
 
 
     #region Save Methods

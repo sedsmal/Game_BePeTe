@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 1cc4c2947e902421a953573156efd7f9
+guid: d67f50daeaa4a4141bc7448e68e31982
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,25 +103,40 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 4096
+    buildTarget: WebGL
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 53
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tiger Sprite_0
+      name: New Piskel (3)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,20 +144,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab09f0a41cc354966bb137cc3bf6471f
-      internalID: -2103280994
+      spriteID: 4ba4353cff6d4d648a343156e07d4cdb
+      internalID: -552111803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_1
+      name: New Piskel (3)_1
       rect:
         serializedVersion: 2
         x: 500
@@ -146,20 +165,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b235dc8b5c40947b19c401fe85e7d226
-      internalID: 2026277775
+      spriteID: 7138f54520a40d6488dc07cb4d986410
+      internalID: 810568621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_2
+      name: New Piskel (3)_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -167,20 +186,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbc81572d1a6a4f078e9be8bcb3782c5
-      internalID: -2017951515
+      spriteID: ee5b162db0d64904791f67247e83b4a5
+      internalID: -1012512655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_3
+      name: New Piskel (3)_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -188,20 +207,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0742587bbfea94d57abf0309bd36abb2
-      internalID: -2143600621
+      spriteID: d58d0315c7ff1d34187f5c07e09ab1ed
+      internalID: -1484064114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_4
+      name: New Piskel (3)_4
       rect:
         serializedVersion: 2
         x: 0
@@ -209,41 +228,41 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c09d936087a4423a9ea579d79e43be9
-      internalID: 358219670
+      spriteID: 4a2e0370f1ed1ec4a98203b182b74ce0
+      internalID: 322041721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_5
+      name: New Piskel (3)_5
       rect:
         serializedVersion: 2
-        x: 505
+        x: 500
         y: 1500
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab0b8b80dfea945498b93ab5366b288e
-      internalID: 1468800161
+      spriteID: 8b7b2eef04b383a429ae44fde34214a1
+      internalID: 778133916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_6
+      name: New Piskel (3)_6
       rect:
         serializedVersion: 2
         x: 1000
@@ -251,20 +270,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2bb4ad9766ad4e6e8103d3afe0ad322
-      internalID: -129190612
+      spriteID: d122a72c23c06684db8586fdc92ca388
+      internalID: -1650137514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_7
+      name: New Piskel (3)_7
       rect:
         serializedVersion: 2
         x: 1500
@@ -272,20 +291,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd0f614276e8a4f3da6e01bb9c6667d6
-      internalID: 1570782374
+      spriteID: ed75ceb3edd72224c98462bcd79e28cf
+      internalID: 811455913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_8
+      name: New Piskel (3)_8
       rect:
         serializedVersion: 2
         x: 0
@@ -293,20 +312,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 101520af81d4f4271b4c07d25bf86d39
-      internalID: -904559211
+      spriteID: 1b112834d1163ff49866934fc0e4e313
+      internalID: -1820094247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_9
+      name: New Piskel (3)_9
       rect:
         serializedVersion: 2
         x: 500
@@ -314,20 +333,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a35a2b5b2ae4c407d84159c900d9f8c4
-      internalID: -711964039
+      spriteID: 7fd613b26904adb4aa99480f92d9d679
+      internalID: 1512274974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_10
+      name: New Piskel (3)_10
       rect:
         serializedVersion: 2
         x: 1000
@@ -335,20 +354,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deaa3b1660b514b88b3f44c8d7931956
-      internalID: 149750722
+      spriteID: b1d8ff2af6d4c5a4a823086e58282c2d
+      internalID: -1268311881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_11
+      name: New Piskel (3)_11
       rect:
         serializedVersion: 2
         x: 1500
@@ -356,20 +375,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cb5675012bf243bfbf542f26d75ae35
-      internalID: -134960876
+      spriteID: e49679dee788f6342a7a3998aac99432
+      internalID: 1562331752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_12
+      name: New Piskel (3)_12
       rect:
         serializedVersion: 2
         x: 0
@@ -377,20 +396,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b69524ac4ed9641efac614fae50ee3c7
-      internalID: -1358985090
+      spriteID: 9e5a8bd321e258046bf2a551cdd10d0a
+      internalID: -984201067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_13
+      name: New Piskel (3)_13
       rect:
         serializedVersion: 2
         x: 500
@@ -398,20 +417,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 884fb099fdb78490bbe9a0ac491d422d
-      internalID: 544654756
+      spriteID: c592ad34100ba584cbd28df4f1bc0bd0
+      internalID: -1511449874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_14
+      name: New Piskel (3)_14
       rect:
         serializedVersion: 2
         x: 1000
@@ -419,20 +438,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f11c96f4e28941ef86aa413ce92940e
-      internalID: 442380086
+      spriteID: d1dd6343530541e46a91987ad80a99bc
+      internalID: 72501055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_15
+      name: New Piskel (3)_15
       rect:
         serializedVersion: 2
         x: 1500
@@ -440,20 +459,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b94b9c01b75044d988fd8af81283dd4
-      internalID: -1696300057
+      spriteID: 1bc0db67fe4175946b5b26d7de5de696
+      internalID: 529962945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_16
+      name: New Piskel (3)_16
       rect:
         serializedVersion: 2
         x: 0
@@ -461,20 +480,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 473b1f7a4cac74c329044ac593c74e7a
-      internalID: 1315468979
+      spriteID: 6707274862daf034c9573df4fc3977a9
+      internalID: 2110943451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_17
+      name: New Piskel (3)_17
       rect:
         serializedVersion: 2
         x: 500
@@ -482,20 +501,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 245be76186b8b41678fe98706f3bda4a
-      internalID: -2131541537
+      spriteID: 7d58ee5d5fb692e47b4c4eb058d28217
+      internalID: 305304056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_18
+      name: New Piskel (3)_18
       rect:
         serializedVersion: 2
         x: 1000
@@ -503,20 +522,20 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5e145743981c4511ad84568896cded8
-      internalID: 1862271105
+      spriteID: c477a54daaa8f5f4bbd5b4cd4652e650
+      internalID: -47273627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiger Sprite_19
+      name: New Piskel (3)_19
       rect:
         serializedVersion: 2
         x: 1500
@@ -524,14 +543,14 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a862b744c3c0431ba996593b2132dfe
-      internalID: 862530665
+      spriteID: eb504abbd10e3254da571ba4d8b10dc6
+      internalID: -1249382489
       vertices: []
       indices: 
       edges: []
@@ -539,7 +558,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c8a0c0c62863b4add9009cb9ee4e6955
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -547,29 +566,28 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tiger Sprite_0: -2103280994
-      Tiger Sprite_1: 2026277775
-      Tiger Sprite_10: 149750722
-      Tiger Sprite_11: -134960876
-      Tiger Sprite_12: -1358985090
-      Tiger Sprite_13: 544654756
-      Tiger Sprite_14: 442380086
-      Tiger Sprite_15: -1696300057
-      Tiger Sprite_16: 1315468979
-      Tiger Sprite_17: -2131541537
-      Tiger Sprite_18: 1862271105
-      Tiger Sprite_19: 862530665
-      Tiger Sprite_2: -2017951515
-      Tiger Sprite_3: -2143600621
-      Tiger Sprite_4: 358219670
-      Tiger Sprite_5: 1468800161
-      Tiger Sprite_6: -129190612
-      Tiger Sprite_7: 1570782374
-      Tiger Sprite_8: -904559211
-      Tiger Sprite_9: -711964039
-  spritePackingTag: 
+      New Piskel (3)_0: -552111803
+      New Piskel (3)_1: 810568621
+      New Piskel (3)_10: -1268311881
+      New Piskel (3)_11: 1562331752
+      New Piskel (3)_12: -984201067
+      New Piskel (3)_13: -1511449874
+      New Piskel (3)_14: 72501055
+      New Piskel (3)_15: 529962945
+      New Piskel (3)_16: 2110943451
+      New Piskel (3)_17: 305304056
+      New Piskel (3)_18: -47273627
+      New Piskel (3)_19: -1249382489
+      New Piskel (3)_2: -1012512655
+      New Piskel (3)_3: -1484064114
+      New Piskel (3)_4: 322041721
+      New Piskel (3)_5: 778133916
+      New Piskel (3)_6: -1650137514
+      New Piskel (3)_7: 811455913
+      New Piskel (3)_8: -1820094247
+      New Piskel (3)_9: 1512274974
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
