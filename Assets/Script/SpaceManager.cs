@@ -43,7 +43,7 @@ public class SpaceManager : SingletonComponent<SpaceManager>,ISaveable
 
     private void Awake()
     {
-<<<<<<< Updated upstream
+
         base.Awake();
         SaveManager.Instance.Register(this);
         if (!LoadSave())
@@ -56,33 +56,14 @@ public class SpaceManager : SingletonComponent<SpaceManager>,ISaveable
             movementMagnitude = 0;
             countOfCorrectTouch = 0;
             Save();
-=======
-        //base.Awake();
-        //SaveManager.Instance.Register(this);
-        //if (!LoadSave())
-        //{
-        //    countOfPlay = 0;
-        //    lastTimeOfPlay = 0;
-        //    bestTimeOfPlay = 0;
-        //    totalTimeOfPlay = 0;
-        //    Save();
->>>>>>> Stashed changes
 
-            // SaveManager.Instance.SaveNow();
             savedJson = SaveManager.Instance.DeSerialize99();
-        //    // SaveManager.Instance.SaveNow();
-        //    savedJson = SaveManager.Instance.DeSerialize99();
 
         }
         else
         {
             savedJson = SaveManager.Instance.DeSerialize99();
         }
-        //}
-        //else
-        //{
-        //    savedJson = SaveManager.Instance.DeSerialize99();
-        //}
     }
 
     // Start is called before the first frame update
