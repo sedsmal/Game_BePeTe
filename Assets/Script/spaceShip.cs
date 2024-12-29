@@ -6,9 +6,10 @@ using BizzyBeeGames;
 
 public class spaceShip : MonoBehaviour
 {
-    private float? lastMousePoint = null;
+    private float? lastMousePoint, lastMousePointX = null;
     Vector3 lastMouse;
     private Vector3 defaultScale;
+    public ParticleSystem spaceClashLight;
     private void Start()
     {
         defaultScale = transform.localScale;
@@ -26,6 +27,7 @@ public class spaceShip : MonoBehaviour
             {
                 if (SpaceManager.Instance.IsHelpActive()) { SpaceManager.Instance.HideHelp(); }
                 lastMousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
+                lastMousePointX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
                 lastMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 SoundManager.Instance.Play("StartEngine");
             }
@@ -37,6 +39,10 @@ public class spaceShip : MonoBehaviour
             {
                 float difference = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - lastMousePoint.Value;
                 float finalpos = transform.position.y + (difference / 1);
+
+                float differenceX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - lastMousePointX.Value;
+                float finalposX = transform.position.x + (differenceX / 1); 
+
                 if (finalpos > 5f)
                 {
                     finalpos = 5f;
@@ -45,9 +51,29 @@ public class spaceShip : MonoBehaviour
                 {
                     finalpos = -5f;
                 }
-                transform.position = new Vector3(transform.position.x, finalpos, transform.position.z);
-                lastMousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
 
+                if (finalposX > -1.58f)
+                {
+                    finalposX = -1.58f;
+                    //spaceClashLight.Simulate(1.2f, true, true);
+                    if(!spaceClashLight.isEmitting)
+                    {
+                        spaceClashLight.Clear(false);
+                        spaceClashLight.Play();
+                        SpaceManager.Instance.PlaySoundImmediately("StartEngine");
+                    }
+
+                    transform.DOShakeScale(0.1f, 0.06f, 1, 1).OnComplete(() => { transform.localScale = defaultScale; });
+
+                }
+                else if (finalposX < -5.88f)
+                {
+                    finalposX = -5.88f;
+                }
+
+                transform.position = new Vector3(finalposX, finalpos, transform.position.z);
+                lastMousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
+                lastMousePointX= Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
 
                 if (difference > 0.01)
                 {

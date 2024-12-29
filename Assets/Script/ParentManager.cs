@@ -242,9 +242,14 @@ public class ParentManager : SingletonComponent<ParentManager>
     public void Logout()
     {
         ObscuredPrefs.DeleteKey("_N");
+        ObscuredPrefs.DeleteKey("_AST");
+        ObscuredPrefs.DeleteKey("_Fr");
+        ObscuredPrefs.DeleteKey("_AMT");
+        ObscuredPrefs.DeleteKey("_P");
         Statics.userData = null;
         loginPopup.SetActive(true);
         activeLoginPopup.SetActive(false);
+        ServerManagment.Instance.Recheck();
     }
 
     IEnumerator SendSMS(string phone,string code)

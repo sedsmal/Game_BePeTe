@@ -22,7 +22,7 @@ public class AlphabetDragDropLevel1 : MonoBehaviour
         {
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             SoundManager.Instance.Play("alphabet");
-            transform.DOShakeScale(0.5f, 0.5f, 10, 90);
+            transform.DOShakeScale(0.5f, 0.5f, 10, 90).OnComplete(() => { transform.localScale = defScale; });
             Level1Manager.Instance.HideHelp();
         }
     }

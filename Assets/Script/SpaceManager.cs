@@ -43,6 +43,7 @@ public class SpaceManager : SingletonComponent<SpaceManager>,ISaveable
 
     private void Awake()
     {
+
         base.Awake();
         SaveManager.Instance.Register(this);
         if (!LoadSave())
@@ -56,7 +57,6 @@ public class SpaceManager : SingletonComponent<SpaceManager>,ISaveable
             countOfCorrectTouch = 0;
             Save();
 
-            // SaveManager.Instance.SaveNow();
             savedJson = SaveManager.Instance.DeSerialize99();
 
         }
