@@ -66,18 +66,7 @@ public class NewArSphere : MonoBehaviour
     void OnPointerUp(PointerEventData eventData) // Use appropriate input event
     {
         
-        if (UnityEngine.Random.Range(0, 10) < 6)
-        {
-            if (UnityEngine.Random.Range(0, 10) < 6)
-            {
-                StartCoroutine(PlaySound("Ali"));
-            }
-            else
-            {
-                StartCoroutine(PlaySound("Afarin"));
-            }
-        }
-        SoundManager.Instance.Play("hit");
+
 
         transform.DOShakeScale(1.6f, 3, 1, 1).OnComplete(() => {
             FloorPlacementController.Instance.WinController();

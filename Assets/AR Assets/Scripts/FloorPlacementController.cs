@@ -167,7 +167,10 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
         timer += Time.deltaTime;
 
         if (timer >= timerDuration && (aRPlaneManager.trackables.count == 0 ) )
+        Debug.Log(timer);
+        if (timer >= timerDuration && (aRPlaneManager.trackables.count == 0) && !surfaceFound)
         {
+
             // Code to be executed every 'timerDuration' seconds
             InvokeRepeating("ReplaySoundPlay", 0, 10);
 
@@ -178,6 +181,9 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
         if (selectPlane.enabled && aRPlaneManager.trackables.count > 0 && !surfaceFound)
         {
             
+            SoundManager.Instance.Stop("ReplayInfo");
+            reStartBtn.transform.DOKill();
+            CancelInvoke();
             StartGameAutomaticaly2();
         }
 
@@ -240,6 +246,13 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
 
     public void ReplaySoundPlay() { SoundManager.Instance.Play("ReplayInfo");
     reStartBtn.transform.DOShakeScale(0.5f, 0.5f, 10, 90).OnComplete(() => { transform.localScale = new Vector3(1.5f,1.5f,1.5f); });
+    public void ReplaySoundPlay() {
+        PlaySoundImmediately("ReplayInfo");
+        //reStartBtn.transform.DOShakeScale(0.5f, 0.5f, 1, 0).OnComplete(() => { reStartBtn.transform.DOShakeScale(0.5f, 0.5f, 1, 0).OnComplete(() => {
+        //    reStartBtn.transform.DOShakeScale(0.5f, 0.5f, 1, 0).OnComplete(() => {
+        //        transform.localScale = new Vector3(1.5f, 1.5f, 1.5f); }); }); });
+        reStartBtn.transform.DOKill();
+        reStartBtn.transform.DOShakeScale(0.3f, 0.3f, 1, 1).SetRelative(true).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
     }
 
     public void StartGameAutomaticaly()
@@ -310,6 +323,7 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
                     //StartButton();
                     SetLoca();
                     SoundManager.Instance.Play("ChoosePlace");
+                    PlaySoundImmediately("ChoosePlace");
                     break;
                     //replayButton.SetActive(false);
                 }
@@ -395,6 +409,7 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
         //balll.transform.SetParent(landd.transform);
         // spawnNew.Add(Instantiate(objectArray[Random.Range(0, objectArray.Length)], new Vector3(savePlane.transform.position.x, savePlane.transform.position.y + 0.05f, savePlane.transform.position.z), hitPose.rotation));
         activeAlphabet = Instantiate(alphabet, new Vector3(locationGameobject.transform.position.x, locationGameobject.transform.position.y+ 0.2955f, locationGameobject.transform.position.z), hitPose.rotation);
+        activeAlphabet = Instantiate(alphabet, new Vector3(locationGameobject.transform.position.x, locationGameobject.transform.position.y+ 0.35f, locationGameobject.transform.position.z), hitPose.rotation);
         //activeAlphabet.gameObject.AddComponent<ARAnchor>();
         activeAlphabet.transform.SetParent(landd.transform.GetChild(0));
         activeAlphabet.transform.localScale = activeAlphabet.transform.localScale * 4;
@@ -476,6 +491,19 @@ public class FloorPlacementController : SingletonComponent<FloorPlacementControl
     public void WinController()
     {
         numberOfDestory++;
+        PlaySoundImmediately("win");
+
+        if (UnityEngine.Random.Range(0, 10) < 6)
+        {
+            PlaySoundImmediately("ali");
+        }
+        else
+        {
+            PlaySoundImmediately("Afarin");
+        }
+     
+
+        PlaySoundImmediately("hit");
         if (numberOfDestory >= totalNumberOfDestrory)
         {
             winPopUp.SetActive(true);
