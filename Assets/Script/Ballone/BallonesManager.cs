@@ -26,6 +26,7 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
     int bestTimeOfPlay;
     int countOfTouch;
     int countOfCorrectTouch;
+    float responseTime;
     #endregion
     private Gyroscope gyroscope;
     private bool isGyroAvailable = false;
@@ -36,6 +37,10 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
     JSONNode savedJson;
     public string SaveId { get { return SceneManager.GetActiveScene().name + " training"; } }
     #endregion
+
+    private List<float> responseTimes = new List<float>();
+    private float totalResponseTime = 0f;
+    private int responseCount = 0;
 
     private void Awake()
     {
@@ -50,6 +55,7 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
             countOfTouch = 0;
             movementMagnitude = 0;
             countOfCorrectTouch = 0;
+            responseTime = 0f;
             Save();
 
             // SaveManager.Instance.SaveNow();
@@ -249,6 +255,17 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
 #endif
     }
 
+    public float CollectResponseTime(float responseTime)
+    {
+        totalResponseTime += responseTime;
+        responseCount++;
+        responseTimes.Add(responseTime);
+
+        float averageResponseTime = totalResponseTime / responseCount;
+
+        return averageResponseTime;
+    }
+    
     public void CalcGyroMovement()
     {
 
@@ -293,6 +310,7 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
         json["countOfPlay"] = countOfPlay;
         json["countOfTouch"] = countOfTouch;
         json["countOfCorrectTouch"] = countOfCorrectTouch;
+        json["movementMagnitude"] = movementMagnitude;
         json["movementMagnitude"] = movementMagnitude;
         //json["lotterylefttime"] = leftTime;
 

@@ -7,12 +7,16 @@ public class AlphabetBallone : MonoBehaviour
 {
 
     private float speed;
+    private bool isTiming = false;
+    private float startTime = 0f;
+    public float responseTime = 0f;
     public bool isPracticeStart;
     public ParticleSystem particle,particle2;
 
     private void Start()
     {
         speed = Random.Range(0.8f, 1.6f);
+        startTime = Time.time;
         StartCoroutine(SelfDestory());
     }
     void Update()
@@ -22,6 +26,13 @@ public class AlphabetBallone : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (isTiming)
+        {
+            responseTime = Time.time - startTime;
+            BallonesManager.Instance.CollectResponseTime(responseTime);
+            isTiming = false;
+        }
+
         if (SceneManager.GetActiveScene().name.Contains("Practice"))
         {
             BallonesPracticeManager.Instance.HitBallone(this.gameObject.name);
