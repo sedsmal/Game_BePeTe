@@ -13160,7 +13160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -39.300007, y: 37.000015}
+  m_AnchoredPosition: {x: -39.30002, y: 37.000015}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &808389401
@@ -14063,6 +14063,7 @@ MonoBehaviour:
   winPopup: {fileID: 678100016}
   HelpFinger: {fileID: 1221142703}
   celebrationParticle: {fileID: 1458181672}
+  movementMagnitude: 0
 --- !u!1 &950976155
 GameObject:
   m_ObjectHideFlags: 0

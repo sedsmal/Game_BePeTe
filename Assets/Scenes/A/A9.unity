@@ -16771,6 +16771,7 @@ MonoBehaviour:
   particle2: {fileID: 245856296}
   particle3: {fileID: 1104864165}
   particle4: {fileID: 332474326}
+  movementMagnitude: 0
 --- !u!1 &376154792
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using CodeStage.AntiCheat.Storage;
 using Newtonsoft.Json;
+using System;
 
 public class FruiteManager : SingletonComponent<FruiteManager>,ISaveable
 {
@@ -24,8 +25,15 @@ public class FruiteManager : SingletonComponent<FruiteManager>,ISaveable
     int lastTimeOfPlay;
     int totalTimeOfPlay;
     int bestTimeOfPlay;
+    int countOfTouch;
+    int countOfCorrectTouch;
     #endregion
+    private Gyroscope gyroscope;
+    private bool isGyroAvailable = false;
 
+    double movementMagnitude; // This will hold the calculated movement
+    double totalMovementMagnitude;
+    double averageMovementMagnitude;
     #region Properties
     JSONNode savedJson;
     public string SaveId { get { return SceneManager.GetActiveScene().name + " training"; } }
@@ -41,6 +49,10 @@ public class FruiteManager : SingletonComponent<FruiteManager>,ISaveable
             lastTimeOfPlay = 0;
             bestTimeOfPlay = 0;
             totalTimeOfPlay = 0;
+            countOfTouch = 0;
+            totalMovementMagnitude = 0f;
+            averageMovementMagnitude = 0f;
+            countOfCorrectTouch = 0;
             Save();
 
             // SaveManager.Instance.SaveNow();
@@ -65,6 +77,17 @@ public class FruiteManager : SingletonComponent<FruiteManager>,ISaveable
         winPopup.SetActive(false);
         ShowHelp();
         Timer.Instance.beginTimer();
+
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyroscope = Input.gyro;
+            gyroscope.enabled = true; // Enable the gyroscope
+            isGyroAvailable = true;
+        }
+        else
+        {
+            Debug.LogWarning("Gyroscope not supported on this device.");
+        }
     }
 
     public void PlaySoundImmediately(string soundname)
@@ -94,11 +117,11 @@ public class FruiteManager : SingletonComponent<FruiteManager>,ISaveable
 
     private void CreateBallones()
     {
-        int count = Random.Range(1, 2);
+        int count = UnityEngine.Random.Range(1, 2);
         for (int i = 0; i < count; i++)
         {
-            GameObject ballone = fruites[Random.Range(0, fruites.Length)];
-            Vector3 position = new Vector3(transform.position.x + Random.Range(-6, 6), transform.position.y, transform.position.z);
+            GameObject ballone = fruites[UnityEngine.Random.Range(0, fruites.Length)];
+            Vector3 position = new Vector3(transform.position.x + UnityEngine.Random.Range(-6, 6), transform.position.y, transform.position.z);
             GameObject newBallone = Instantiate(ballone, position, Quaternion.identity);
             newBallone.transform.SetParent(fruitParentObject.transform);
         }
@@ -182,13 +205,63 @@ public class FruiteManager : SingletonComponent<FruiteManager>,ISaveable
         lastTimeOfPlay = time;
 
         Save();
-        SaveManager.Instance.SaveNow();
+
         //countOfPlay = ObscuredPrefs.GetInt(SceneManager.GetActiveScene().name + "Count");
         //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name, time + lastTimeOfPlay);
         //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", countOfPlay + 1);
     }
 
+    public void TouchCounter()
+    {
+        // Check for touches on a touch-enabled device
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    countOfTouch++;
+                    //Debug.Log("Total Touches: " + countOfTouch);
+                }
+            }
+        }
 
+        // Optional: Check for mouse clicks as simulated touches in the editor
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        {
+            countOfTouch++;
+            //Debug.Log("Total Touches: " + countOfTouch);
+        }
+#endif
+    }
+
+    public void CalcGyroMovement()
+    {
+
+
+        if (isGyroAvailable)
+        {
+            totalMovementMagnitude = 0f;
+            // Get the gyroscope rotation rate (angular velocity in radians per second)
+            Vector3 gyroRotationRate = gyroscope.rotationRate;
+
+            // Calculate the magnitude of the rotation
+            movementMagnitude = gyroRotationRate.magnitude;
+            totalMovementMagnitude += movementMagnitude * Time.deltaTime;
+
+
+            if (averageMovementMagnitude != 0)
+            {
+                averageMovementMagnitude = (averageMovementMagnitude + totalMovementMagnitude) / 2f;
+            }
+            else
+            {
+                averageMovementMagnitude = totalMovementMagnitude;
+            }
+        }
+
+    }
     #region Save Methods
 
     public Dictionary<string, object> Save()
@@ -217,6 +290,10 @@ public class FruiteManager : SingletonComponent<FruiteManager>,ISaveable
         json["bestTimeOfPlay"] = bestTimeOfPlay;
         json["totalTimeOfPlay"] = totalTimeOfPlay;
         json["countOfPlay"] = countOfPlay;
+        json["countOfTouch"] = countOfTouch;
+        json["countOfCorrectTouch"] = countOfCorrectTouch;
+        json["totalMovementMagnitude"] = totalMovementMagnitude;
+        json["averageMovementMagnitude"] = averageMovementMagnitude;
         //json["lotterylefttime"] = leftTime;
 
         return json;
@@ -236,6 +313,10 @@ public class FruiteManager : SingletonComponent<FruiteManager>,ISaveable
         lastTimeOfPlay = int.Parse(json["lastTimeOfPlay"].Value);
         bestTimeOfPlay = int.Parse(json["bestTimeOfPlay"].Value);
         totalTimeOfPlay = int.Parse(json["totalTimeOfPlay"].Value);
+        countOfTouch = int.Parse(json["countOfTouch"].Value);
+        countOfCorrectTouch = int.Parse(json["countOfCorrectTouch"].Value);
+        totalMovementMagnitude = Convert.ToDouble(json["totalMovementMagnitude"].Value);
+        averageMovementMagnitude = Convert.ToDouble(json["averageMovementMagnitude"].Value);
         return true;
     }
     #endregion

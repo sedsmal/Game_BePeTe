@@ -55,10 +55,21 @@ namespace BizzyBeeGames
 
         private void Start()
         {
-
-            DontDestroyOnLoad(this.gameObject);
+            Debug.Log(SaveFilePath);
+          //DontDestroyOnLoad(this.gameObject);
         }
-
+        private void OnDestroy()
+        {
+            Save();
+        }
+        private void OnApplicationQuit()
+        {
+            Save();
+        }
+        //private void OnApplicationPause(bool pause)
+        //{
+        //    Save();
+        //}
         private void Update()
         {
 
@@ -68,11 +79,19 @@ namespace BizzyBeeGames
             }
         }
 
-        public void SaveNow()
-        {
+        //public void SaveNow()
+        //{
+        //    if (VRManagment.Instance != null)
+        //    {
+        //        VRManagment.Instance.Save();
+        //    }
+        //    if (FruiteManager.Instance != null)
+        //    {
+        //        FruiteManager.Instance.Save();
+        //    }
+        //    Save();
+        //}
 
-            Save();
-        }
 
         public void DeleteSaveAndResetGame()
         {
@@ -146,37 +165,48 @@ namespace BizzyBeeGames
             //{
             //    saveJson = JsonConvert.DeserializeObject<Dictionary<string, object>>(DeSerialize99().ToString());
             //}
-            //Debug.Log("Statics Save text is: " + Statics.SaveText);
-            if (!Statics.SaveText.Contains("{"))
-            {
-                saveJson = new Dictionary<string, object>();
-            }
-            else
-            {
-                saveJson = JsonConvert.DeserializeObject<Dictionary<string, object>>(Statics.SaveText);
-                // Debug.Log("Save Content is: " + saveJson);
-                for (int i = 0; i < saveables.Count; i++)
+            Debug.Log("Statics Save text is: " + Statics.SaveText);
+
+                if (!Statics.SaveText.Contains("{"))
                 {
-                    if (!saveables.Contains(saveables[i]))
+
+                    saveJson = new Dictionary<string, object>();
+                }
+                else
+                {
+                    saveJson = JsonConvert.DeserializeObject<Dictionary<string, object>>(Statics.SaveText);
+                    Debug.Log("Save Content is: " + saveJson);
+                    if (saveables != null)
                     {
-                        saveJson.Add(saveables[i].SaveId, saveables[i].Save());
-                    }
-                    else
-                    {
-                        saveJson[saveables[i].SaveId] = saveables[i].Save();
+                        for (int i = 0; i < saveables.Count; i++)
+                        {
+                            if (!saveables.Contains(saveables[i]))
+                            {
+                                saveJson.Add(saveables[i].SaveId, saveables[i].Save());
+                            }
+                            else
+                            {
+                                saveJson[saveables[i].SaveId] = saveables[i].Save();
+                            }
+
+                        }
                     }
 
                 }
-            }
+                 Debug.Log(Statics.SaveText);
+                Statics.SaveText = JsonConvert.SerializeObject(saveJson);
+                System.IO.File.WriteAllText(SaveFilePath, JsonConvert.SerializeObject(saveJson));
+                Debug.Log(SaveFilePath);
+ 
+
 
 
 
 
             //Serialize99(JsonConvert.SerializeObject(saveJson));
 
-            Statics.SaveText = JsonConvert.SerializeObject(saveJson);
-            Debug.Log(Statics.SaveText);
-            System.IO.File.WriteAllText(SaveFilePath, Statics.SaveText);
+            //Statics.SaveText = JsonConvert.SerializeObject(saveJson);
+
             //StartCoroutine(SaveOnServer(Statics.SaveText));
 
 

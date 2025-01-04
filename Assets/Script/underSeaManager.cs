@@ -5,6 +5,7 @@ using BizzyBeeGames;
 using UnityEngine.SceneManagement;
 using CodeStage.AntiCheat.Storage;
 using Newtonsoft.Json;
+using System;
 
 public class underSeaManager : SingletonComponent<underSeaManager>,ISaveable
 {
@@ -20,8 +21,16 @@ public class underSeaManager : SingletonComponent<underSeaManager>,ISaveable
     int lastTimeOfPlay;
     int totalTimeOfPlay;
     int bestTimeOfPlay;
+    int countOfTouch;
+    int countOfCorrectTouch;
     #endregion
 
+    private Gyroscope gyroscope;
+    private bool isGyroAvailable = false;
+
+    double movementMagnitude; // This will hold the calculated movement
+    double totalMovementMagnitude;
+    double averageMovementMagnitude;
     #region Properties
     JSONNode savedJson;
     public string SaveId { get { return SceneManager.GetActiveScene().name + " training"; } }
@@ -37,6 +46,10 @@ public class underSeaManager : SingletonComponent<underSeaManager>,ISaveable
             lastTimeOfPlay = 0;
             bestTimeOfPlay = 0;
             totalTimeOfPlay = 0;
+            countOfTouch = 0;
+            totalMovementMagnitude = 0f;
+            averageMovementMagnitude = 0f;
+            countOfCorrectTouch = 0;
             Save();
 
             // SaveManager.Instance.SaveNow();
@@ -56,6 +69,17 @@ public class underSeaManager : SingletonComponent<underSeaManager>,ISaveable
         StartCoroutine(PlaySound("LevelIntro"));
         StartCoroutine(StartHelp());
         Timer.Instance.beginTimer();
+
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyroscope = Input.gyro;
+            gyroscope.enabled = true; // Enable the gyroscope
+            isGyroAvailable = true;
+        }
+        else
+        {
+            Debug.LogWarning("Gyroscope not supported on this device.");
+        }
     }
 
     public void StartPlay()
@@ -141,7 +165,7 @@ public class underSeaManager : SingletonComponent<underSeaManager>,ISaveable
             bestTimeOfPlay = time;
         }
         lastTimeOfPlay = time;
-        SaveManager.Instance.SaveNow();
+
         Save();
 
         //countOfPlay = ObscuredPrefs.GetInt(SceneManager.GetActiveScene().name + "Count");
@@ -149,7 +173,56 @@ public class underSeaManager : SingletonComponent<underSeaManager>,ISaveable
         //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", countOfPlay + 1);
     }
 
+    public void TouchCounter()
+    {
+        // Check for touches on a touch-enabled device
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    countOfTouch++;
+                    //Debug.Log("Total Touches: " + countOfTouch);
+                }
+            }
+        }
 
+        // Optional: Check for mouse clicks as simulated touches in the editor
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        {
+            countOfTouch++;
+            //Debug.Log("Total Touches: " + countOfTouch);
+        }
+#endif
+    }
+
+    public void CalcGyroMovement()
+    {
+
+        if (isGyroAvailable)
+        {
+            totalMovementMagnitude = 0f;
+            // Get the gyroscope rotation rate (angular velocity in radians per second)
+            Vector3 gyroRotationRate = gyroscope.rotationRate;
+
+            // Calculate the magnitude of the rotation
+            movementMagnitude = gyroRotationRate.magnitude;
+            totalMovementMagnitude += movementMagnitude * Time.deltaTime;
+
+
+            if (averageMovementMagnitude != 0)
+            {
+                averageMovementMagnitude = (averageMovementMagnitude + totalMovementMagnitude) / 2f;
+            }
+            else
+            {
+                averageMovementMagnitude = totalMovementMagnitude;
+            }
+        }
+
+    }
     #region Save Methods
 
     public Dictionary<string, object> Save()
@@ -177,6 +250,10 @@ public class underSeaManager : SingletonComponent<underSeaManager>,ISaveable
         json["bestTimeOfPlay"] = bestTimeOfPlay;
         json["totalTimeOfPlay"] = totalTimeOfPlay;
         json["countOfPlay"] = countOfPlay;
+        json["countOfTouch"] = countOfTouch;
+        json["countOfCorrectTouch"] = countOfCorrectTouch;
+        json["totalMovementMagnitude"] = totalMovementMagnitude;
+        json["averageMovementMagnitude"] = averageMovementMagnitude;
         //json["lotterylefttime"] = leftTime;
 
         return json;
@@ -196,6 +273,10 @@ public class underSeaManager : SingletonComponent<underSeaManager>,ISaveable
         lastTimeOfPlay = int.Parse(json["lastTimeOfPlay"].Value);
         bestTimeOfPlay = int.Parse(json["bestTimeOfPlay"].Value);
         totalTimeOfPlay = int.Parse(json["totalTimeOfPlay"].Value);
+        countOfTouch = int.Parse(json["countOfTouch"].Value);
+        countOfCorrectTouch = int.Parse(json["countOfCorrectTouch"].Value);
+        totalMovementMagnitude = Convert.ToDouble(json["totalMovementMagnitude"].Value);
+        averageMovementMagnitude = Convert.ToDouble(json["averageMovementMagnitude"].Value);
         return true;
     }
     #endregion

@@ -65,7 +65,10 @@ public class MainMenuManager : SingletonComponent<MainMenuManager>
         StartCoroutine(PlaySound("LevelIntro"));
         ServerManagment.Instance.InitializeServer();
         currentCoins = ObscuredPrefs.GetInt("stT");
-        starText.text = ArabicFixer.Fix(currentCoins.ToString(),true,true);
+
+        if(SceneManager.GetActiveScene().name == "Main Menu")
+            starText.text = ArabicFixer.Fix(currentCoins.ToString(),true,true);
+
         doesGive = false;
         StarGiftPopup.SetActive(false);
         StartCoroutine(ShowGiveStar());

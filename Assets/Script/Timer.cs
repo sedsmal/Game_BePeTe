@@ -15,7 +15,10 @@ public class Timer : SingletonComponent<Timer>
     private float elapsedTime, startTime;
     static string timePlayingString;
 
-
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     public void beginTimer()
     {

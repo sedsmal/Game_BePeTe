@@ -7,6 +7,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using CodeStage.AntiCheat.Storage;
 using Newtonsoft.Json;
+using System;
 
 public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
 {
@@ -24,13 +25,24 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
     int lastTimeOfPlay;
     int totalTimeOfPlay;
     int bestTimeOfPlay;
+    int countOfTouch;
+    int countOfCorrectTouch;
+    float responseTime;
+    float averageResponseTime;
     #endregion
+    private Gyroscope gyroscope;
+    private bool isGyroAvailable = false;
 
+    double movementMagnitude; // This will hold the calculated movement
+    double totalMovementMagnitude;
+    double averageMovementMagnitude;
     #region Properties
     JSONNode savedJson;
     public string SaveId { get { return SceneManager.GetActiveScene().name + " training"; } }
     #endregion
-
+    private List<float> responseTimes = new List<float>();
+    private float totalResponseTime = 0f;
+    private int responseCount = 0;
     private void Awake()
     {
         base.Awake();
@@ -41,6 +53,11 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
             lastTimeOfPlay = 0;
             bestTimeOfPlay = 0;
             totalTimeOfPlay = 0;
+            countOfTouch = 0;
+            totalMovementMagnitude = 0f;
+            averageMovementMagnitude = 0f;
+            countOfCorrectTouch = 0;
+            responseTime = 0f;
             Save();
 
             // SaveManager.Instance.SaveNow();
@@ -66,7 +83,18 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
         winPopup.SetActive(false);
         SoundManager.Instance.Play("music1");
         Timer.Instance.beginTimer();
-        
+
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyroscope = Input.gyro;
+            gyroscope.enabled = true; // Enable the gyroscope
+            isGyroAvailable = true;
+        }
+        else
+        {
+            Debug.LogWarning("Gyroscope not supported on this device.");
+        }
+
     }
 
     public void PlaySoundImmediately(string soundname)
@@ -96,12 +124,12 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
 
     private void CreateBallones()
     {
-        int count = Random.Range(1, 2);
+        int count = UnityEngine. Random.Range(1, 2);
         for (int i =0; i < count; i++)
         {
-            GameObject ballone = ballones[Random.Range(0, ballones.Length)];
+            GameObject ballone = ballones[UnityEngine.Random.Range(0, ballones.Length)];
 
-            Vector3 position = new Vector3(transform.position.x + Random.Range(-6, 6), transform.position.y, transform.position.z);
+            Vector3 position = new Vector3(transform.position.x + UnityEngine.Random.Range(-6, 6), transform.position.y, transform.position.z);
             GameObject newBallone = Instantiate(ballone, position, Quaternion.identity);
             newBallone.transform.SetParent(ballonesParentObject.transform);
 
@@ -199,12 +227,95 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
         lastTimeOfPlay = time;
 
         Save();
-        SaveManager.Instance.SaveNow();
+
         //countOfPlay = ObscuredPrefs.GetInt(SceneManager.GetActiveScene().name + "Count");
         //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name, time + lastTimeOfPlay);
         //ObscuredPrefs.SetInt(SceneManager.GetActiveScene().name + "Count", countOfPlay + 1);
     }
+    public void CollectResponseTime(float responseTime)
+    {
+        totalResponseTime += responseTime;
+        responseTimes.Add(responseTime);
 
+    }
+    public float LevelResponseTime()
+    {
+        foreach(float a in responseTimes)
+        {
+            totalResponseTime += a;
+            responseCount++;
+        }
+
+        responseTime = totalResponseTime / responseTimes.Count;
+
+        return responseTime;
+    }
+    public float AverageResponseTime()
+    {
+
+        if(averageResponseTime != 0)
+        {
+            averageResponseTime = (responseTime+ averageResponseTime)/2f;
+        }
+        else
+        {
+            averageResponseTime = responseTime;
+        }
+        
+
+        return averageResponseTime;
+    }
+    public void TouchCounter()
+    {
+        // Check for touches on a touch-enabled device
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    countOfTouch++;
+                    //Debug.Log("Total Touches: " + countOfTouch);
+                }
+            }
+        }
+
+        // Optional: Check for mouse clicks as simulated touches in the editor
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        {
+            countOfTouch++;
+            //Debug.Log("Total Touches: " + countOfTouch);
+        }
+#endif
+    }
+
+    public void CalcGyroMovement()
+    {
+
+
+        if (isGyroAvailable)
+        {
+            totalMovementMagnitude = 0f;
+            // Get the gyroscope rotation rate (angular velocity in radians per second)
+            Vector3 gyroRotationRate = gyroscope.rotationRate;
+
+            // Calculate the magnitude of the rotation
+            movementMagnitude = gyroRotationRate.magnitude;
+            totalMovementMagnitude += movementMagnitude * Time.deltaTime;
+
+
+            if (averageMovementMagnitude != 0)
+            {
+                averageMovementMagnitude = (averageMovementMagnitude + totalMovementMagnitude) / 2f;
+            }
+            else
+            {
+                averageMovementMagnitude = totalMovementMagnitude;
+            }
+        }
+
+    }
 
     #region Save Methods
 
@@ -233,6 +344,12 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
         json["bestTimeOfPlay"] = bestTimeOfPlay;
         json["totalTimeOfPlay"] = totalTimeOfPlay;
         json["countOfPlay"] = countOfPlay;
+        json["countOfTouch"] = countOfTouch;
+        json["countOfCorrectTouch"] = countOfCorrectTouch;
+        json["totalMovementMagnitude"] = totalMovementMagnitude;
+        json["averageMovementMagnitude"] = averageMovementMagnitude;
+        json["responseTime"] = LevelResponseTime();
+        json["averageResponseTime"] = AverageResponseTime();
         //json["lotterylefttime"] = leftTime;
 
         return json;
@@ -252,6 +369,12 @@ public class BallonesManager : SingletonComponent<BallonesManager>,ISaveable
         lastTimeOfPlay = int.Parse(json["lastTimeOfPlay"].Value);
         bestTimeOfPlay = int.Parse(json["bestTimeOfPlay"].Value);
         totalTimeOfPlay = int.Parse(json["totalTimeOfPlay"].Value);
+        countOfTouch = int.Parse(json["countOfTouch"].Value);
+        countOfCorrectTouch = int.Parse(json["countOfCorrectTouch"].Value);
+        totalMovementMagnitude = Convert.ToDouble(json["totalMovementMagnitude"].Value);
+        averageMovementMagnitude = Convert.ToDouble(json["averageMovementMagnitude"].Value);
+        responseTime = float.Parse(json["responseTime"].Value);
+        averageResponseTime = float.Parse(json["averageResponseTime"].Value);
         return true;
     }
     #endregion

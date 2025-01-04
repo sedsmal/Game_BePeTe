@@ -40,18 +40,21 @@ public class GyroCameraController : SingletonComponent<GyroCameraController>
 
     public void InitializeGyro()
     {
-        gyroEnabled = EnableGyro();
-        cam = this.gameObject.GetComponent<Camera>();
-        // Capture the initial rotation from the gyroscope
-        initialRotation = new Quaternion(gyro.attitude.x, gyro.attitude.y, -gyro.attitude.z, -gyro.attitude.w);
-        // Convert the initial quaternion to Euler angles (X, Y, Z)
-        Vector3 initialEuler1 = initialRotation.eulerAngles;
-        // Apply a 90-degree rotation around the X-axis and preserve X and Y, but set Z to 0
-        Quaternion tempRotation = Quaternion.Euler(90f, 0f, 0f) * Quaternion.Euler(initialEuler1.x, initialEuler1.y, 0f);
-        // Convert the resulting quaternion to Euler angles
-        Vector3 tempEuler = tempRotation.eulerAngles;
-        // Apply the rotation to the camera with Z locked to 0
-        transform.rotation = Quaternion.Euler(tempEuler.x, tempEuler.y, 0f);
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyroEnabled = EnableGyro();
+            cam = this.gameObject.GetComponent<Camera>();
+            // Capture the initial rotation from the gyroscope
+            initialRotation = new Quaternion(gyro.attitude.x, gyro.attitude.y, -gyro.attitude.z, -gyro.attitude.w);
+            // Convert the initial quaternion to Euler angles (X, Y, Z)
+            Vector3 initialEuler1 = initialRotation.eulerAngles;
+            // Apply a 90-degree rotation around the X-axis and preserve X and Y, but set Z to 0
+            Quaternion tempRotation = Quaternion.Euler(90f, 0f, 0f) * Quaternion.Euler(initialEuler1.x, initialEuler1.y, 0f);
+            // Convert the resulting quaternion to Euler angles
+            Vector3 tempEuler = tempRotation.eulerAngles;
+            // Apply the rotation to the camera with Z locked to 0
+            transform.rotation = Quaternion.Euler(tempEuler.x, tempEuler.y, 0f);
+        }
     }
 
     private Quaternion ConvertGyroRotation(Quaternion gyroAttitude)

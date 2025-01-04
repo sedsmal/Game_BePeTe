@@ -15,7 +15,10 @@ public class Bubble : MonoBehaviour
         transform.DOShakePosition(4f, 0.1f, 1, 90).SetLoops(-1, LoopType.Yoyo);
         transform.DOShakeScale(4f, 0.1f, 1, 90).SetLoops(-1, LoopType.Yoyo);
     }
-
+    private void Update()
+    {
+        transform.position =new Vector3(transform.position.x,transform.position.y,-6f);
+    }
     private void OnMouseUpAsButton()
     {
         if (!UiHoverListener.Instance.IsPointerOverUIElement())
